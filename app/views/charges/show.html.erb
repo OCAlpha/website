@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Office:</b>
+  <%= @charge.office_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @charge.user_id %>
+</p>
+
+<p>
+  <b>Charge type:</b>
+  <%= @charge.charge_type_id %>
+</p>
+
+<p>
+  <b>Override value:</b>
+  <%= @charge.override_value %>
+</p>
+
+<p>
+  <b>Reconciled:</b>
+  <%= @charge.reconciled %>
+</p>
+
+
+<%= link_to 'Edit', edit_charge_path(@charge) %> |
+<%= link_to 'Back', charges_path %>

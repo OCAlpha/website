@@ -11,7 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417223317) do
+ActiveRecord::Schema.define(:version => 20130428223258) do
+
+  create_table "account_transfers", :force => true do |t|
+    t.integer  "from_account_id"
+    t.integer  "to_account_id"
+    t.decimal  "amount"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "charge_types", :force => true do |t|
+    t.string   "category"
+    t.decimal  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "office_id"
+  end
+
+  create_table "charges", :force => true do |t|
+    t.integer  "office_id"
+    t.integer  "user_id"
+    t.integer  "charge_type_id"
+    t.decimal  "override_value"
+    t.boolean  "reconciled"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -21,6 +53,46 @@ ActiveRecord::Schema.define(:version => 20130417223317) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "offices", :force => true do |t|
+    t.decimal  "budget"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.integer  "officer_id"
+    t.string   "email"
+  end
+
+  create_table "payment_types", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "paid_by_user_id"
+    t.integer  "collected_by_user_id"
+    t.decimal  "amount_paid"
+    t.string   "notes"
+    t.boolean  "reconciled"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "charge_id"
+  end
+
+  create_table "reconciliations", :force => true do |t|
+    t.float    "balance"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "transfers", :force => true do |t|
+    t.integer  "officer_user_id"
+    t.integer  "account_id"
+    t.decimal  "value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
