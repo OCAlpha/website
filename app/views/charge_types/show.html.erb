@@ -2,14 +2,17 @@
 
 <p>
   <b>Type:</b>
-  <%= @charge_type.type %>
+  <%= @charge_type.category %>
 </p>
 
 <p>
   <b>Value:</b>
   <%= @charge_type.value %>
 </p>
-
+<p>
+  <b>Office:</b>
+  <%= @charge_type.office.title %>
+</p>
 
 <%= link_to 'Edit', edit_charge_type_path(@charge_type) %> |
 <%= link_to 'Back', charge_types_path %>

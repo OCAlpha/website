@@ -2,22 +2,22 @@
 
 <p>
   <b>Office:</b>
-  <%= @charge.office_id %>
+  <%= @charge.office.title %>
 </p>
 
 <p>
   <b>User:</b>
-  <%= @charge.user_id %>
+  <%= @charge.user.name %>
 </p>
 
 <p>
   <b>Charge type:</b>
-  <%= @charge.charge_type_id %>
+  <%= @charge.charge_type.category %>
 </p>
 
 <p>
   <b>Override value:</b>
-  <%= @charge.override_value %>
+  <%= number_to_currency(@charge.override_value, :unit => "$") %>
 </p>
 
 <p>

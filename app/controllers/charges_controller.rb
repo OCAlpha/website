@@ -43,7 +43,6 @@ class ChargesController < ApplicationController
   # POST /charges.json
   def create
     @charge = Charge.new(params[:charge])
-    @charge.office_id = Office.find(params[:office_id])
     respond_to do |format|
       if @charge.save
         format.html { redirect_to @charge, notice: 'Charge was successfully created.' }

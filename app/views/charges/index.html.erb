@@ -1,12 +1,11 @@
-<h1>Listing charges</h1>
+<% provide :title, 'All Charges' %>
 
 <table>
   <tr>
     <th>Office</th>
     <th>User</th>
     <th>Charge type</th>
-    <th>Override value</th>
-    <th>Reconciled</th>
+    <th>Value</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +13,10 @@
 
 <% @charges.each do |charge| %>
   <tr>
-    <td><%= charge.office_id %></td>
-    <td><%= charge.user_id %></td>
-    <td><%= charge.charge_type_id %></td>
-    <td><%= charge.override_value %></td>
-    <td><%= charge.reconciled %></td>
+    <td><%= charge.office.title %></td>
+    <td><%= charge.user.name %></td>
+    <td><%= charge.charge_type.category %></td>
+    <td><%= number_to_currency(charge.override_value, :currency => "$") %></td>
     <td><%= link_to 'Show', charge %></td>
     <td><%= link_to 'Edit', edit_charge_path(charge) %></td>
     <td><%= link_to 'Destroy', charge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Charge', new_charge_path %>
+<%= link_to 'New Charge', new_charge_path, class:"btn btn-primary" %>

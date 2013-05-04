@@ -3,10 +3,11 @@
 # Table name: charge_types
 #
 #  id         :integer          not null, primary key
-#  type       :string(255)
+#  category   :string(255)
 #  value      :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  office_id  :integer
 #
 
 require 'spec_helper'

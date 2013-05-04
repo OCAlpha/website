@@ -12,7 +12,7 @@
 #
 
 class Office < ActiveRecord::Base
-  attr_accessible :budget, :title
+  attr_accessible :budget, :title, :officer_id
   
   belongs_to :officer, class_name: 'User', foreign_key: 'officer_id'
   has_many :charge_types
@@ -23,6 +23,6 @@ class Office < ActiveRecord::Base
   validates :budget, presence: true
   
   def spent
-    sum(Expense.where())
+
   end
 end

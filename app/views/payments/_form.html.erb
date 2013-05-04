@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :paid_by_user_id %><br />
-    <%= f.number_field :paid_by_user_id %>
+    <%= f.select :paid_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort %>
   </div>
   <div class="field">
     <%= f.label :collected_by_user_id %><br />
-    <%= f.number_field :collected_by_user_id %>
+    <%= f.select :collected_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort %>
   </div>
   <div class="field">
     <%= f.label :amount_paid %><br />
@@ -27,11 +27,7 @@
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </div>
-  <div class="field">
-    <%= f.label :reconciled %><br />
-    <%= f.check_box :reconciled %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-large btn-primary"%>
   </div>
 <% end %>

@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Officer</th>
     <th>Budget</th>
     <th></th>
     <th></th>
@@ -12,6 +13,7 @@
 <% @offices.each do |office| %>
   <tr>
     <td><%= office.title %></td>
+    <td><%= office.officer_id %></td>
     <td><%= office.budget %></td>
     <td><%= link_to 'Show', office %></td>
     <td><%= link_to 'Edit', edit_office_path(office) %></td>

@@ -18,7 +18,11 @@
     <%= f.label :budget %><br />
     <%= f.text_field :budget %>
   </div>
+  <div class="field">
+    <%= f.label :officer %>
+    <%= f.select :officer_id, User.all.collect {|u| [u.name, u.id]}.sort, :default => params[:officer_id] %>
+  </div>
   <div class="actions">
-    <%= f.submit "Create Office", class: "btn btn-large btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>

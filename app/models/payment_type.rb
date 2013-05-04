@@ -9,9 +9,9 @@
 #
 
 class PaymentType < ActiveRecord::Base
-  attr_accessible :type
+  attr_accessible :name
   
-  belongs_to :payment
+  has_many :payments
   
-  validates :type, presence:true
+  validates :name, presence:true
 end

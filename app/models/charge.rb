@@ -16,7 +16,7 @@ class Charge < ActiveRecord::Base
   attr_accessible :override_value, :reconciled, :user_id, :charge_type_id, :office_id
   
   before_create :setup_charge
-  has_one :charge_type
+  belongs_to :charge_type
   belongs_to :office
   belongs_to :user
   has_many :payments
@@ -26,7 +26,7 @@ class Charge < ActiveRecord::Base
   private
   def setup_charge
     self.reconciled = false
-    self.office = charge_typ.office
+    self.office = charge_type.office
     self.override_value = charge_type.value unless override_value != 0
   end
   def validate_charge

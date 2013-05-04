@@ -5,6 +5,30 @@
   <%= @office.budget %>
 </p>
 
+<table>
+  <tr>
+    <th>Office</th>
+    <th>User</th>
+    <th>Charge type</th>
+    <th>Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @office.charges.each do |charge| %>
+  <tr>
+    <td><%= charge.office.title %></td>
+    <td><%= charge.user.name %></td>
+    <td><%= charge.charge_type.category %></td>
+    <td><%= number_to_currency(charge.override_value, :currency => "$") %></td>
+    <td><%= link_to 'Show', charge %></td>
+    <td><%= link_to 'Edit', edit_charge_path(charge) %></td>
+    <td><%= link_to 'Destroy', charge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
 
 <%= link_to 'Edit', edit_office_path(@office) %> |
 <%= link_to 'Back', offices_path %>

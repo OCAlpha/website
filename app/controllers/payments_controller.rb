@@ -25,7 +25,6 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
     @payment = Payment.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @payment }
@@ -41,7 +40,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
-
+    @payment.reconciled = false
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
