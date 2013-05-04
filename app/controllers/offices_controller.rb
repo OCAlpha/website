@@ -14,7 +14,8 @@ class OfficesController < ApplicationController
   # GET /offices/1.json
   def show
     @office = Office.find(params[:id])
-
+    @spent = 0
+    @charged = 0
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @office }

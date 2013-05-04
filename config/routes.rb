@@ -1,4 +1,7 @@
 Fullrun::Application.routes.draw do
+  resources :purchases
+
+
   resources :payment_types
 
 
@@ -10,7 +13,7 @@ Fullrun::Application.routes.draw do
   resources :offices
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
+  resources :purchases
   
   root to: 'static_pages#home' 
   
@@ -23,7 +26,8 @@ Fullrun::Application.routes.draw do
   match '/newcharge', to: 'charges#new'
   match '/newpayment', to: 'payments#new'
   match '/newtransfer', to: 'transfers#new'
-  
+  match '/clubpurchase', to: 'purchases#new'
+  match '/constitution', to: 'static_pages#constitution'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

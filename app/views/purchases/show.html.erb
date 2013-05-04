@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @purchase.user.name %>
+</p>
+
+<p>
+  <b>Purchase amount:</b>
+  <%= number_to_currency(@purchase.purchase_amount, :unit => "$") %>
+</p>
+
+<p>
+  <b>Office:</b>
+  <%= @purchase.office.title %>
+</p>
+<p>
+  <b>Purchased From:</b>
+  <%= @purchase.purchase_location %>
+</p>
+<p>
+  <b>Note:</b>
+  <%= @purchase.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

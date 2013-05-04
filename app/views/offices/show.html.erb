@@ -1,34 +1,49 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Budget:</b>
-  <%= @office.budget %>
-</p>
-
-<table>
+<table class="table table-bordered">
   <tr>
-    <th>Office</th>
     <th>User</th>
     <th>Charge type</th>
     <th>Value</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
-
+<% @office.purchases.each do |purchase| %>
+  <tr>
+    <td>purchase.user.name</td>
+    <td>Purchase</td>
+    <td><%= number_to_currency(purchase.purchase_amount, :currency => "$") %></td>
+    <td><%= link_to 'Show', purchase %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+  </tr>
+  <% @spent += purchase.purchase_amount %>
+<% end %>
 <% @office.charges.each do |charge| %>
   <tr>
-    <td><%= charge.office.title %></td>
     <td><%= charge.user.name %></td>
     <td><%= charge.charge_type.category %></td>
     <td><%= number_to_currency(charge.override_value, :currency => "$") %></td>
     <td><%= link_to 'Show', charge %></td>
     <td><%= link_to 'Edit', edit_charge_path(charge) %></td>
-    <td><%= link_to 'Destroy', charge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% @charged += charge.override_value %>
 <% end %>
 </table>
-
+<h4>
+  <b>Budget:</b>
+  <%= number_to_currency(@office.budget, :unit => "$") %>
+</h4>
+<h4>
+  <b>Total Spent:</b>
+  <%= number_to_currency(@spent, :currency => "$") %>
+</h4>
+<h4>
+  <b>Total Charged to Members:</b>
+  <%= number_to_currency(@charged, :currency => "$") %>
+</h4>
+<h4>
+  <b>Total Balance:</b>
+  <%= number_to_currency(@office.budget - @spent + @charged, :currency => "$") %>
+</h4>
 
 <%= link_to 'Edit', edit_office_path(@office) %> |
 <%= link_to 'Back', offices_path %>

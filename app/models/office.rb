@@ -9,15 +9,17 @@
 #  title      :string(255)
 #  officer_id :integer
 #  email      :string(255)
+#  duties     :text
 #
 
 class Office < ActiveRecord::Base
-  attr_accessible :budget, :title, :officer_id
+  attr_accessible :budget, :title, :officer_id, :duties
   
   belongs_to :officer, class_name: 'User', foreign_key: 'officer_id'
   has_many :charge_types
   has_many :charges, :through => :charge_types
   has_many :payments, :through => :charges
+  has_many :purchases
   
   validates :title, presence: true
   validates :budget, presence: true

@@ -1,0 +1,29 @@
+<h1>Listing purchases</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>User</th>
+    <th>Purchase amount</th>
+    <th>Office</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchases.each do |purchase| %>
+  <tr>
+    <td><%= purchase.user_id %></td>
+    <td><%= purchase.purchase_amount %></td>
+    <td><%= number_to_currency(purchase.office_id, :unit => "$") %></td>
+    <td><%= purchase.note %></td>
+    <td><%= link_to 'Show', purchase %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+    <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase', new_purchase_path %>

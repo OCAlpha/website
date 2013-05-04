@@ -9,6 +9,7 @@
 #  title      :string(255)
 #  officer_id :integer
 #  email      :string(255)
+#  duties     :text
 #
 
 require 'spec_helper'
