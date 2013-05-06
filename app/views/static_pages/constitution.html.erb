@@ -1,5 +1,5 @@
 <% provide(:title, "Constitution") %>
-<h3>The Constitution of</h3>
+<h2 style="margin-bottom:0px">The Constitution of</h2>
 <h1>Alpha Gamma Omega</h1>
 <h2>Preamble</h2>
   <p>We, the members of Alpha Gamma Omega, in order to provide a useful and productive organization that inspires growth in personal character through brotherhood, service, and competition, do hereby ordain and establish this constitution as a foundation for the government of this institution. </p>
@@ -80,7 +80,7 @@
       Each officer must read the entirety of the constitution.</p>
     <h4>Section 4</h4>
       <p>The duties of all officers shall be as follows:
-      <!--A good place for refactoring.  All offices contain ther duties, we could make this happen in a loop... -->
+      <!--A good place for refactoring.  All offices contain ther duties, we could make this happen in a loop -->
         <dl>
           <dt><a href="mailto:king@agoknights.com">President <small><i>King</i></small></a></dt>
           <p><small>Current President: <%= User.find_by_id(@king[:officer_id]).name %></small></p>

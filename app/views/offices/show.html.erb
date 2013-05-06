@@ -44,6 +44,5 @@
   <b>Total Balance:</b>
   <%= number_to_currency(@office.budget - @spent + @charged, :currency => "$") %>
 </h4>
-
 <%= link_to 'Edit', edit_office_path(@office) %> |
 <%= link_to 'Back', offices_path %>

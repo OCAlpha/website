@@ -28,6 +28,9 @@ Fullrun::Application.routes.draw do
   match '/newtransfer', to: 'transfers#new'
   match '/clubpurchase', to: 'purchases#new'
   match '/constitution', to: 'static_pages#constitution'
+  match '/officers', to: 'offices#index'
+  match '/rush', to: 'static_pages#rush'
+  match '/calendar', to: 'static_pages#calendar'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

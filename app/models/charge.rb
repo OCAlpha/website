@@ -26,8 +26,7 @@ class Charge < ActiveRecord::Base
   private
   def setup_charge
     self.reconciled = false
-    self.office = charge_type.office
-    self.override_value = charge_type.value unless override_value != 0
+    validate_charge
   end
   def validate_charge
     self.office = charge_type.office

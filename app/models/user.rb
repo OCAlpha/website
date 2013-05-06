@@ -30,6 +30,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
   
+  def officer?
+    Office.find_by_officer_id(self.id) == nil?
+  end
   
   private
 

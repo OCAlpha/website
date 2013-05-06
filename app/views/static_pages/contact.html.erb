@@ -1,6 +1,17 @@
 <% provide( :title,'Contact') %>
 <h1>Contact</h1>
 <p>
-  Contact Ruby on Rails Tutorial about the sample app at the
-  <a href="http://railstutorial.org/contact">contact page</a>.
+  You can contact any officer through their official club email address.
+  <ul>
+    <li><%= mail_to "#{@king.email}", "President: " + @king.officer.name %></li>
+    <li><a href="mailto:#<%= @queen.email %>">Vice President: <%= User.find_by_id(@queen[:officer_id]).name %></a></li>
+    <li><a href="mailto:#<%= @scribe.email %>">Secretary: <%= User.find_by_id(@scribe[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @taxer.email %>">Treasurer: <%= User.find_by_id(@taxer[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @bishop.email %>">Chaplain: <%= User.find_by_id(@bishop[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @friar.email %>">Social Service Director: <%= User.find_by_id(@friar[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @sergeant.email %>">Athletic Director: <%= User.find_by_id(@sergeant[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @wizard.email %>">Historian: <%= User.find_by_id(@wizard[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @ambassador.email %>">Rush/Public Relations Director: <%= User.find_by_id(@ambassador[:officer_id]).name %></li>
+    <li><a href="mailto:#<%= @jester.email %>">Spring Sing Director: <%=User.find_by_id(@jester[:officer_id]).name %></li>
+  </ul>
 </p>

@@ -13,7 +13,7 @@
 #
 
 class Office < ActiveRecord::Base
-  attr_accessible :budget, :title, :officer_id, :duties
+  attr_accessible :budget, :title, :officer_id, :duties, :email
   
   belongs_to :officer, class_name: 'User', foreign_key: 'officer_id'
   has_many :charge_types
@@ -24,6 +24,9 @@ class Office < ActiveRecord::Base
   validates :title, presence: true
   validates :budget, presence: true
   
+  def officer
+    User.find_by_id(self.officer_id)
+  end
   def spent
 
   end

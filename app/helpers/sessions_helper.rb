@@ -21,6 +21,11 @@ module SessionsHelper
     redirect_to(root_path) unless current_user?(@user)
   end
   
+  def officer_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless Office.find_by_officer_id(@user[:id]) != nil
+  end
+  
   def admin_user
     redirect_to(root_path) unless current_user.admin?
   end
