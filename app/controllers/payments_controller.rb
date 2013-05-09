@@ -40,7 +40,6 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
-    @payment.reconciled = false
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
@@ -56,7 +55,6 @@ class PaymentsController < ApplicationController
   # PUT /payments/1.json
   def update
     @payment = Payment.find(params[:id])
-
     respond_to do |format|
       if @payment.update_attributes(params[:payment])
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }

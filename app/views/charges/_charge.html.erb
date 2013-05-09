@@ -1,8 +1,8 @@
 <tr>
   <td>Charge</td>
-  <td><%= charge.amount %></td>
+  <td><%= number_to_currency(charge.amount, :currency => "$") %></td>
   <td><%= charge.created_at %></td>
-  <td><%= charge.charge_type.type %></td>
+  <td><%= charge.charge_type.category %></td>
   <td><%= charge.office.title %></td>
   <td></td>
 </tr>

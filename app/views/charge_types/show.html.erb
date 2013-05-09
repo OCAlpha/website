@@ -7,7 +7,7 @@
 
 <p>
   <b>Value:</b>
-  <%= @charge_type.value %>
+  <%= number_to_currency(@charge_type.value, :currency=>"$") %>
 </p>
 <p>
   <b>Office:</b>

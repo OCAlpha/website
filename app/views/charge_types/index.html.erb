@@ -12,7 +12,7 @@
 <% @charge_types.each do |charge_type| %>
   <tr>
     <td><%= charge_type.category %></td>
-    <td><%= charge_type.value %></td>
+    <td><%= number_to_currency(charge_type.value, :currency =>"$") %></td>
     <td><%= charge_type.office.title %></td>
     <td><%= link_to 'Show', charge_type %></td>
     <td><%= link_to 'Edit', edit_charge_type_path(charge_type) %></td>

@@ -9,6 +9,7 @@
   </aside>
   <div class="span8">
     <h2>User History</h2>
+      <table class="table">
         <tr>
           <th>Transaction Type</th>
           <th>Amount</th>
@@ -17,7 +18,9 @@
           <th>Officer</th>
           <th>Notes</th>
         </tr>
+        <%= render @charges %>
         <%= render @payments %>
+        
       </table>
     </div>
 </div>

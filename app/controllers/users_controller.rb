@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @payments = @user.payments
+    @charges = @user.charges
   end
   
   def create

@@ -19,7 +19,7 @@ class Payment < ActiveRecord::Base
   belongs_to :payment_type
   belongs_to :payer, :class_name => 'User', :foreign_key => 'paid_by_user_id'
   belongs_to :collector, :class_name => 'User', :foreign_key => 'collected_by_user_id'
-  belongs_to :charge
+  #belongs_to :charge
   
   validates :amount_paid, presence:true
   validates :notes, length: {maximum: 255}
@@ -29,7 +29,6 @@ class Payment < ActiveRecord::Base
   validates :collected_by_user_id, presence: true
   
   private
-  
   def setup_payment
     self.reconciled = false
   end

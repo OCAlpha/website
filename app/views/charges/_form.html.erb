@@ -23,10 +23,6 @@
     <%= f.label "Price (if not default)" %><br />
     <%= f.text_field :override_value %>
   </div>
-  <div class="field">
-    <%= f.label :office_id %><br />
-    <%= f.select :office_id, Office.all.collect {|o| [o.title, o.id]} %>
-  </div>
   <div class="actions">
     <%= f.submit class:"btn btn-large btn-primary"%>
   </div>
