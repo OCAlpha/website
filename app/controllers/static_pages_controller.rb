@@ -8,7 +8,8 @@ class StaticPagesController < ApplicationController
   def about
   end
   
-  def contact
+  def calendar
+    @feed = Feedzirra::Feed.fetch_and_parse("https://www.facebook.com/feeds/page.php?id=185067424858325&format=rss20")
   end
   
   def constitution

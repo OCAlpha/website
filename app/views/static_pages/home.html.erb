@@ -1,12 +1,3 @@
-<% if signed_in? %>
-  <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-    </aside>
-  </div>
-<% else %>
   <div class="center hero-unit">
     <h1>Alpha Gamma Omega</h1> 
     <h2>
@@ -16,4 +7,4 @@
     Welcome to Alpha Gamma Omega's home on the web! We are a group of brothers forming a Chirst and service focused club at Oklahoma Christian University. If you are unfamiliar with Alpha, feel free to explore the site and find out more about us.</p>
     <p>If you are thinking of rushing Alpha, be sure and make a stop at our <%= link_to "rush page", "#" %> to see our upcoming rush activities. If you are an alum, be sure and check out our <%= link_to "alumni page", "#" %>. Be sure and let us know if you have any questions or comments.</p>
   </div>
-<% end %>
+  

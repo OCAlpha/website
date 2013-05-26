@@ -18,8 +18,16 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    
     @payments = @user.payments
     @charges = @user.charges
+    @purchases = @user.purchases
+    @transfers = @user.transfers
+    
+    @payments_sum = @payments.sum(:amount_paid)
+    @charges_sum = @charges.sum(:override_value)
+    @purchases_sum = @purchases.sum(:purchase_amount)
+    @transfers_sum = @transfers.sum(:value)
   end
   
   def create
@@ -34,6 +42,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
   end
   
   def update

@@ -20,7 +20,22 @@
         </tr>
         <%= render @charges %>
         <%= render @payments %>
-        
+        <%= render @purchases %>
+        <%= render @transfers %>
       </table>
+      
+      <div class="row">
+        <div class="span4">
+          <h3>Summary</h3>
+          <table class="table table-condensed">
+            <!--Insert mouseover text -->
+            <tr><td><b data-toggle="tooltip" title="Dues, event costs or purchases">Charged to date:</b></td> <td><%= number_to_currency(@charges_sum, :currency => "$")%></td></tr>
+            <tr><td><b data-toggle="tooltip" title="Money paid to an officer">Payments made:</b></td> <td><%= number_to_currency(@payments_sum, :currency => "$")%></td></tr>
+            <tr><td><b data-toggle="tooltip" title="Purchases made on Alpha's behalf that should be reimbursed">Purchases made:</b></td> <td><%= number_to_currency(@purchases_sum, :currency => "$")%></td></tr>
+            <tr><td><b data-toggle="tooltip" title="Money paid directly to an account (the cash box, checking account, or Paypal)">Transfers to accounts: </b></td> <td><%= number_to_currency(@transfers_sum, :currency => "$")%></td></tr>
+            <tr class="info"><td><b data-toggle="tooltip" title="Charges minus Payments, Purchases, and Transfers">Total Outstanding:</b></td> <td><strong><%= number_to_currency(@charges_sum - @payments_sum - @purchases_sum - @transfers_sum, :currency => "$")%></strong></td></tr>
+          </table>
+        </div>
+      </div>
     </div>
 </div>

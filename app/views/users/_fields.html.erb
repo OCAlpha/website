@@ -3,11 +3,26 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 
+<%= f.check_box :email_public %> Share email address in Directory
 <%= f.label :email %>
-<%= f.text_field :email %>
+<%= f.email_field :email %>
+
+<%= f.check_box :phone_public %> Share phone number in Directory
+<%= f.label :phone, "Phone number" %>
+<%= f.telephone_field :phone %>
 
 <%= f.label :password %>
 <%= f.password_field :password %>
 
 <%= f.label :password_confirmation, "Confirmation" %>
 <%= f.password_field :password_confirmation %>
+
+<%= f.label :nickname, "Knight name" %>
+<%= f.text_field :nickname %>
+
+<%= f.label :story, "Story behind the name" %>
+<%= f.text_area :story, :rows => "5" %>
+
+<%= f.label :testimonial, "Why I love Alpha"%>
+<%= f.text_area :testimonial, :rows => "3" %>
+

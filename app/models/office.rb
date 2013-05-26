@@ -28,6 +28,9 @@ class Office < ActiveRecord::Base
     User.find_by_id(self.officer_id)
   end
   def spent
-
+    self.purchases.sum(:purchase_amount)
+  end
+  def budget_remaining
+    self.budget + self.charges.sum(:override_value) - self.spent
   end
 end

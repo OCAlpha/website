@@ -29,6 +29,10 @@ module SessionsHelper
   def admin_user
     redirect_to(root_path) unless current_user.admin?
   end
+  
+  def exec_user
+    redirect_to(root_path) unless current_user.executor?
+  end
     
   def current_user=(user)
     @current_user = user
@@ -58,5 +62,13 @@ module SessionsHelper
   
   def store_location
     session[:return_to] = request.url
+  end
+  
+  def executor?
+    current_user.executor?
+  end
+  
+  def officer?
+    current_user.officer?
   end
 end

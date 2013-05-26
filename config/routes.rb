@@ -31,6 +31,10 @@ Fullrun::Application.routes.draw do
   match '/officers', to: 'offices#index'
   match '/rush', to: 'static_pages#rush'
   match '/calendar', to: 'static_pages#calendar'
+  match '/directory', to: 'users#index'
+  match '/budgets', to: 'offices#index'
+  match '/home', to: 'static_pages#home'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

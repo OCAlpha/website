@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Officer</th>
     <th>Budget</th>
+    <th>Remaining</th>
     <% if current_user.officer? %>
       <th></th>
       <% if current_user.admin? %>
@@ -18,6 +19,7 @@
     <td><%= link_to office.title, office %></td>
     <td><%= office.officer.name %></td>
     <td><%= number_to_currency(office.budget, :currency => "$") %></td>
+    <td><%= number_to_currency(office.budget_remaining, :currency => "$") %></td>
     <% if current_user.officer? %>
       <td><%= link_to 'Edit', edit_office_path(office) %></td>
       <% if current_user.admin? %>
@@ -26,6 +28,18 @@
     <% end %>
   </tr>
 <% end %>
+<tr>
+  <td><strong>Summary</strong></td>
+  <td><strong>All Offices</strong></td>
+  <td><strong><%= number_to_currency(master_budget, :currency => "$") %></strong></td>
+  <td><strong data-toggle="tooltip" title="This sum excludes the treasurer"><%= number_to_currency(master_remaining, :currency => "$") %></strong></td>
+  <% if current_user.officer? %>
+    <td></td>
+    <% if current_user.admin? %>
+      <td></td>
+    <% end %>
+  <% end %>
+</tr>
 </table>
 
 <br />

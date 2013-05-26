@@ -28,8 +28,10 @@
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             <li><%= link_to "Make a Payment", newpayment_path, method: "create" %></li>
                             <li><%= link_to "Process Purchase", clubpurchase_path, method: "create" %></li>
-                            <li><%= link_to "Make a Charge", newcharge_path, method: "create" %></li>
-                            <li><%= link_to "Transfer Money", newtransfer_path, method: "create" %></li>
+                            <% if executor? %>
+                                <li><%= link_to "Charge Money", newcharge_path, method: "create" %></li>
+                                <li><%= link_to "Transfer Money", newtransfer_path, method: "create" %></li>
+                            <% end %>
                             <li><%= link_to "View Officers/Budgets", offices_path %></li>
                         </ul>
                     </li>

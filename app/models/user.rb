@@ -10,18 +10,25 @@
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  admin           :boolean          default(FALSE)
+#  nickname        :string(255)
+#  story           :text
+#  phone           :string(255)
+#  email_public    :boolean
+#  phone_public    :boolean
+#  testimonial     :text
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :nickname, :story, :email_public, :phone_public, :testimonial
   has_secure_password
   
   has_many :collections, :class_name => "Payment", :foreign_key => "collected_by_user_id"
   has_many :payments, :class_name => "Payment", :foreign_key => "paid_by_user_id"
   has_many :charges
+  has_many :transfers, :class_name => "Transfer", :foreign_key => "officer_user_id"
   before_save {email.downcase!}
   before_save :create_remember_token
-  has_one :office
+  has_one :office, :class_name => "Office", :foreign_key => "officer_id"
   has_many :purchases
   
   validates :name, presence: true, length: {maximum: 50}
@@ -31,7 +38,25 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   
   def officer?
-    Office.find_by_officer_id(self.id) == nil?
+    self.office != nil?
+  end
+  
+  def executor?
+    myoffice = Office.find_by_officer_id(self.id)
+
+    if(myoffice.title == 'Treasurer')
+      return true
+    end
+    if(myoffice.title == 'President')
+      return true
+    end
+    if(myoffice.title == 'Vice President')
+      return true
+    end
+    if(myoffice == nil)
+      return false
+    end
+    return false
   end
   
   private

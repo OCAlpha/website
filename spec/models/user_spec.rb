@@ -10,6 +10,12 @@
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  admin           :boolean          default(FALSE)
+#  nickname        :string(255)
+#  story           :text
+#  phone           :string(255)
+#  email_public    :boolean
+#  phone_public    :boolean
+#  testimonial     :text
 #
 
 require 'spec_helper'

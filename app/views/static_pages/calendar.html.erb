@@ -1,1 +1,17 @@
-<iframe src="http://www.google.com/calendar/embed?src=Webmaster%40agoknights.com&ctz=America/Chicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<div class="row">
+  <div class="span9">
+    <iframe src="http://www.google.com/calendar/embed?src=Webmaster%40agoknights.com&ctz=America/Chicago" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+  </div>
+  <div class="span3">
+    <table class="table table-striped">
+      <thead>
+        <tr><strong><%= link_to "What we've been up to", "https://www.facebook.com/AGOKnights/" %></strong></tr>
+      </thead>
+      <% @feed.entries.each do |entry| %>
+        <tr>
+          <p><%= raw(entry.summary) %></p>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

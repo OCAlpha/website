@@ -9,7 +9,7 @@
   </tr>
 <% @office.purchases.each do |purchase| %>
   <tr>
-    <td>purchase.user.name</td>
+    <td><%= purchase.user.name %></td>
     <td>Purchase</td>
     <td><%= number_to_currency(purchase.purchase_amount, :currency => "$") %></td>
     <td><%= link_to 'Show', purchase %></td>
