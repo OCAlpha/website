@@ -1,3 +1,73 @@
 <% provide(:title, 'Help') %>
-<h1>Help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<h1>Treasury Help</h1>
+<p>
+  This is the Alpha website. The first stage implementation is
+  for the treasury, which is my final project. A brief rundown of the structure is as follows:
+</p>
+<p>
+  There are many monetary interactions that happen within a social club treasury. Users can:
+  <ol>
+    <li>Be charged for a product/dues</li>
+    <li>Make/recieve a payment</li>
+    <li>Transfer money to a physical account</li>
+    <li>Transfer money between physical accounts</li>
+  </ol>
+  This app attempts to capture all those relationships to monitor club funds.
+</p>
+<p>
+  I do this by a series of models: one for each of the four transaction types mentioned, plus a few bookkeeping models for
+  good measure. The models I have created for this system are the following:
+ <dl>
+  <dt>Account</dt>
+  <dd>
+    An account is a container for real-world money. Typical accounts include: Checking, savings, Paypal, and a local Cash Box.
+  </dd>
+  <dt>Account Transfer</dt>
+  <dd>
+    This model records money transfers between accounts that a user instigates.
+    An example of this would be a cash deposit into a checking account.
+  </dd>
+  <dt>Charge</dt>
+  <dd>
+    When a user purchases something (including membership to club, otherwise known as <em>dues</em>), they are charged for that purchase.
+    A charge belongs to a user and an office and has a charge type. An override field is available for charges not fitting the charge type's default value.
+  </dd>
+  <dt>Charge Type</dt>
+  <dd>
+    A charge type is an abstraction and a reason for a charge. Examples of a charge type are "T-shirt" and "dues".
+    A charge type belongs to a charge and contains the description of the type and a default value for the charge.
+    This allows us to charge items "in bulk" such as dues or large pre-orders as a treasurer. It will also be utilized in our
+    eventual online store to set default prices on items as they become available.
+    Positive charges are for items that were purchased by a user FROM club/an office.
+    Negative charges are for items that were purchased by a user FOR an office (ie they paid out-of-pocket for something).
+  </dd>
+  <dt>Office</dt>
+  <dd>
+    An office is a physicial office of club.
+    Each office has a user, many charges and many payments through the charges.
+    Each officer can see their budget, what outstanding charges are out for their office, and how much of their budget remains.
+  </dd>
+  <dt>Payment</dt>
+  <dd>
+    A payment is a complimentary action to a charge. A payment has a payer, a collector (both users), one or more charges
+    (if there is not one then it will automatically be created), and a payment amount. Notes about the payment are optional.
+  </dd>
+  <dt>Reconciliation</dt>
+  <dd>
+    A reconciliation is a bookkeeping measure to confirm at the end of a period (determined by the Treasurer) that a transaction is complete.
+    Under the hood, only unreconciled transactions and the last major reconciliation alter the anticipated sum within any Account.
+    The baseline value of an account is the last Reconciled total, then any unreconciled transfers involving that account are added.
+  </dd>
+  <dt>Transfer</dt>
+  <dd>
+    A transfer is the relationship between a user and a physical account. A transfer has a user, an account, and the amount transferred between.
+    If the amount is positive, that means the user paid the account. Negative and the account paid the user.
+  </dd>
+  <dt>User</dt>
+  <dd>
+    The hub of our entire system is the user. A user has many Charges, Payments, Transfers, and can hold an office.
+  </dd>
+ </dl>
+ The user-centricity of the system is the largest strength of the treasury. Any user can log in and immediately see how much
+ they owe or are owed by club, and the treasurer can see this information about any other member as well.
+</p>
