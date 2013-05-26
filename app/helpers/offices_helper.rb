@@ -14,4 +14,12 @@ module OfficesHelper
     end
     return sum_remaining
   end
+  
+  def total_spent
+    sum_spent = 0
+    Office.all.each do |office|
+      sum_spent += office.spent
+    end
+    return sum_spent
+  end
 end

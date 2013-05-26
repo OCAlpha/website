@@ -8,13 +8,13 @@
             <li><%= link_to "About Alpha", about_path %></li>
             <li><%= link_to "Calendar", calendar_path %></li>
             <% if signed_in? %>
-                <li> <%= link_to "Users", users_path %></li>
+                <li> <%= link_to "Directory", users_path %></li>
                 <li id="main-menu" class="dropdown-menu" role="menu" aria-labeledby="dLabel">
                     <li id="account-menu" class="dropdown-submenu">
                         <a href="#" tabindex="-1">
                             Account
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="margin-top:40px">
                             <li><%= link_to "Profile", current_user %></li>
                             <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                             <li class="divider"></li>
@@ -25,7 +25,7 @@
                         <a href = "#" tabindex = "-1">
                             Treasury
                         </a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <ul class="dropdown-menu" role="menu" style="margin-top:40px" aria-labelledby="dLabel">
                             <li><%= link_to "Make a Payment", newpayment_path, method: "create" %></li>
                             <li><%= link_to "Process Purchase", clubpurchase_path, method: "create" %></li>
                             <% if executor? %>
