@@ -6,4 +6,9 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt:user.name, class: "gravatar")
   end
+  
+  def all_users
+    User.all.collect {|u| [u.name, u.id]}.sort
+  end
+  
 end

@@ -20,8 +20,8 @@
     <%= f.select :collected_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort %>
   </div>
   <div class="field">
-    <%= f.label :amount_paid %><br />
-    <%= f.text_field :amount_paid %>
+    <%= f.label :purchase_amount %><br />
+    <%= f.text_field :purchase_amount %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />

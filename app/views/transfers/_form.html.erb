@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :officer_user_id %><br />
-    <%= f.number_field :officer_user_id %>
+    <%= f.label :officer_user_id, "Member" %><br />
+    <%= f.select :officer_user_id, all_users %>
   </div>
   <div class="field">
     <%= f.label :account_id %><br />
-    <%= f.number_field :account_id %>
+    <%= f.select :account_id, Account.all.collect{|a| [a.name, a.id]} %>
   </div>
   <div class="field">
     <%= f.label :value %><br />

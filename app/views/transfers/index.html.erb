@@ -2,20 +2,18 @@
 
 <table class="table table-bordered">
   <tr>
-    <th>Officer user</th>
+    <th>Member</th>
     <th>Account</th>
     <th>Value</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @transfers.each do |transfer| %>
   <tr>
-    <td><%= transfer.officer_user_id %></td>
-    <td><%= transfer.account_id %></td>
-    <td><%= transfer.value %></td>
-    <td><%= link_to 'Show', transfer %></td>
+    <td><%= transfer.user.name %></td>
+    <td><%= transfer.account.name %></td>
+    <td><%= number_to_currency(transfer.value, :currency => "$") %></td>
     <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
     <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -24,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Transfer', new_transfer_path %>
+<%= link_to 'New Transfer', new_transfer_path, :class => "btn btn-primary" %>

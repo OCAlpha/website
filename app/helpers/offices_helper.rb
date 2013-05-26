@@ -22,4 +22,8 @@ module OfficesHelper
     end
     return sum_spent
   end
+  
+  def all_officers
+    Office.all.collect {|o| [o.officer.name, o.officer.id]}.sort
+  end
 end

@@ -75,6 +75,5 @@ currently planned features by OC's fall semester in September.
  * Include public contact info (email/phone if made public by user)
 6. Start implementing Reconciliation system in treasury
 7. Refactor site to include namespaces for Treasury and future expansions
-8. Start implementing other planned features (details to be added to to-
-do list as features are implemented)
+8. Start implementing other planned features (details to be added to to-do list as features are implemented)
 9. Get a private repository...

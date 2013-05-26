@@ -12,4 +12,10 @@
 
 class Transfer < ActiveRecord::Base
   attr_accessible :account_id, :officer_user_id, :value
+  belongs_to :account
+  belongs_to :user, class_name: 'User', foreign_key: 'officer_user_id'
+  
+  validates :account_id, presence:true
+  validates :officer_user_id, presence:true
+  validates :value, presence:true
 end

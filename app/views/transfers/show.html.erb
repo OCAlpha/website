@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Officer user:</b>
-  <%= @transfer.officer_user_id %>
+  <b>Member:</b>
+  <%= @transfer.officer_user.name %>
 </p>
 
 <p>
   <b>Account:</b>
-  <%= @transfer.account_id %>
+  <%= @transfer.account.name %>
 </p>
 
 <p>
   <b>Value:</b>
-  <%= @transfer.value %>
+  <%= number_to_currency(@transfer.value, :currency => "$") %>
 </p>
 
 
