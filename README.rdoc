@@ -24,38 +24,38 @@ continuing to develop new features.
 
 == Planned Features (in no particular order)
 
-  * A Spring Sing page with embedded videos of past shows, historical records, etc.
-  * Event Signups and Sign-ins for members and rushees
-  * Officer Bios page that each officer can edit their own bio
-  * Online store for available merchandise
-  * Alum logins with Facebook or email for directory and Knews
-  * Knightly Knews section editable by Secretary (blog-style functionality)
-  * Resource Tracker for Alpha's stuff
-  * Resource tracker for Alpha's Members' stuff (a library system of sorts
-       to show who has what movies, books, etc. that they are willing to share)
-  * A mobile version of the site
-  * Web page QR codes for mobile advertising
-  * Prayer wall with follow-up capability that supports public and anonymous
-       prayer requests
-  * Links in the treasury and online store to make payments with Paypal
-  * Additional features for current members
+* A Spring Sing page with embedded videos of past shows, historical records, etc.
+* Event Signups and Sign-ins for members and rushees
+* Officer Bios page that each officer can edit their own bio
+* Online store for available merchandise
+* Alum logins with Facebook or email for directory and Knews
+* Knightly Knews section editable by Secretary (blog-style functionality)
+* Resource Tracker for Alpha's stuff
+* Resource tracker for Alpha's Members' stuff (a library system of sorts
+to show who has what movies, books, etc. that they are willing to share)
+* A mobile version of the site
+* Web page QR codes for mobile advertising
+* Prayer wall with follow-up capability that supports public and anonymous
+prayer requests
+* Links in the treasury and online store to make payments with Paypal
+* Additional features for current members
   
   If you have any ideas to add to this list, email tommy.winberry@eagles.oc.edu
  
 
 == Page Permissions
 * Public pages can be accessed by anyone, logged in or not
-       * Home
-       * About
-       * Calendar
-       * Constitution
-       * Contact
-       * Rush
+ - Home
+ - About
+ - Calendar
+ - Constitution
+ - Contact
+ - Rush
 * Club pages can only be accessed by logged in users
-       * Directory
-       * Budgets
-       * Personal Account page
-       * User Edit page
+ * Directory
+ * Budgets
+ * Personal Account page
+ * User Edit page
 
 == Participation
 
@@ -71,10 +71,10 @@ currently planned features by OC's fall semester in September.
 3. Verify permissions on all pages
 4. Implement Payment/Charge/Purchase/Transfer confirmation for non-officers
 5. Add features to Directory Page
-       * Executors can see member's current balance
-       * Include public contact info (email/phone if made public by user)
+ * Executors can see member's current balance
+ * Include public contact info (email/phone if made public by user)
 6. Start implementing Reconciliation system in treasury
 7. Refactor site to include namespaces for Treasury and future expansions
 8. Start implementing other planned features (details to be added to to-
-       do list as features are implemented)
+do list as features are implemented)
 9. Get a private repository...
