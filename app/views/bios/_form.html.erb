@@ -1,0 +1,47 @@
+<%= form_for(@bio) do |f| %>
+  <% if @bio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bio.errors.count, "error") %> prohibited this bio from being saved:</h2>
+
+      <ul>
+      <% @bio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => @user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :hometown %><br />
+    <%= f.text_field :hometown %>
+  </div>
+  <div class="field">
+    <%= f.label "Favorite Bible Verse" %><br />
+    <%= f.text_field :favorite_verse %>
+  </div>
+  <div class="field">
+    <%= f.label :major %><br />
+    <%= f.text_field :major %>
+  </div>
+  <div class="field">
+    <%= f.label :favorite_breakfast %><br />
+    <%= f.text_field :favorite_breakfast %>
+  </div>
+  <div class="field">
+    <%= f.label :favorite_superhero %><br />
+    <%= f.text_field :favorite_superhero %>
+  </div>
+  <div class="field">
+    <%= f.label "When I grow up..." %><br />
+    <%= f.text_field :grow_up %>
+  </div>
+  <div class="field">
+    <%= f.label "Favorite Catchphrase" %><br />
+    <%= f.text_field :catchphrase %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

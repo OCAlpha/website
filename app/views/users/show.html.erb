@@ -1,13 +1,6 @@
 <% provide(:title, @user.name)%>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-      </h1>
-    </section>
-  </aside>
-  <div class="span8">
+ <%= gravatar_for @user %>
     <h2>User History</h2>
       <table class="table">
         <tr>
@@ -36,6 +29,5 @@
             <tr class="info"><td><b data-toggle="tooltip" title="Charges minus Payments, Purchases, and Transfers">Total Outstanding:</b></td> <td><strong><%= number_to_currency(@charges_sum - @payments_sum - @purchases_sum - @transfers_sum, :currency => "$")%></strong></td></tr>
           </table>
         </div>
-      </div>
     </div>
 </div>

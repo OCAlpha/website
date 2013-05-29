@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hometown:</b>
+  <%= @bio.hometown %>
+</p>
+
+<p>
+  <b>Favorite verse:</b>
+  <%= @bio.favorite_verse %>
+</p>
+
+<p>
+  <b>Major:</b>
+  <%= @bio.major %>
+</p>
+
+<p>
+  <b>Favorite breakfast:</b>
+  <%= @bio.favorite_breakfast %>
+</p>
+
+<p>
+  <b>Favorite superhero:</b>
+  <%= @bio.favorite_superhero %>
+</p>
+
+<p>
+  <b>Grow up:</b>
+  <%= @bio.grow_up %>
+</p>
+
+<p>
+  <b>Catchphrase:</b>
+  <%= @bio.catchphrase %>
+</p>
+
+
+<%= link_to 'Edit', edit_bio_path(@bio) %> |
+<%= link_to 'Back', bios_path %>

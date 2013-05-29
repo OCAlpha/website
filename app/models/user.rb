@@ -19,9 +19,10 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :nickname, :story, :email_public, :phone_public, :testimonial
+  attr_accessible :email, :name, :password, :password_confirmation, :nickname, :story, :phone, :email_public, :phone_public, :testimonial
   has_secure_password
   
+  has_one :bio
   has_many :collections, :class_name => "Payment", :foreign_key => "collected_by_user_id"
   has_many :payments, :class_name => "Payment", :foreign_key => "paid_by_user_id"
   has_many :charges
@@ -38,23 +39,15 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   
   def officer?
-    self.office != nil?
+    !self.office.nil?
   end
   
   def executor?
-    myoffice = Office.find_by_officer_id(self.id)
-
-    if(myoffice.title == 'Treasurer')
-      return true
-    end
-    if(myoffice.title == 'President')
-      return true
-    end
-    if(myoffice.title == 'Vice President')
-      return true
-    end
-    if(myoffice == nil)
+    if(self.office.nil?)
       return false
+    end
+    if(self.office.title == 'Treasurer' || self.office.title == 'President' || self.office.title == 'Vice President')
+      return true
     end
     return false
   end

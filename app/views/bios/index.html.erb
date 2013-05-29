@@ -1,0 +1,35 @@
+<h1>Listing bios</h1>
+
+<table>
+  <tr>
+    <th>Hometown</th>
+    <th>Favorite verse</th>
+    <th>Major</th>
+    <th>Favorite breakfast</th>
+    <th>Favorite superhero</th>
+    <th>Grow up</th>
+    <th>Catchphrase</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bios.each do |bio| %>
+  <tr>
+    <td><%= bio.hometown %></td>
+    <td><%= bio.favorite_verse %></td>
+    <td><%= bio.major %></td>
+    <td><%= bio.favorite_breakfast %></td>
+    <td><%= bio.favorite_superhero %></td>
+    <td><%= bio.grow_up %></td>
+    <td><%= bio.catchphrase %></td>
+    <td><%= link_to 'Show', bio %></td>
+    <td><%= link_to 'Edit', edit_bio_path(bio) %></td>
+    <td><%= link_to 'Destroy', bio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bio', new_bio_path %>

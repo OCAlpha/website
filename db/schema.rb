@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526032526) do
+ActiveRecord::Schema.define(:version => 20130527014929) do
 
   create_table "account_transfers", :force => true do |t|
     t.integer  "from_account_id"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20130526032526) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "bios", :force => true do |t|
+    t.string   "hometown"
+    t.string   "favorite_verse"
+    t.string   "major"
+    t.string   "favorite_breakfast"
+    t.string   "favorite_superhero"
+    t.string   "grow_up"
+    t.string   "catchphrase"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "charge_types", :force => true do |t|
@@ -53,6 +65,18 @@ ActiveRecord::Schema.define(:version => 20130526032526) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "officer_bios", :force => true do |t|
+    t.string   "hometown"
+    t.string   "favorite_verse"
+    t.string   "major"
+    t.string   "favorite_breakfast"
+    t.string   "favorite_superhero"
+    t.string   "grow_up"
+    t.string   "catchphrase"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "offices", :force => true do |t|
     t.decimal  "budget"

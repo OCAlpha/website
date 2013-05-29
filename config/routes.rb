@@ -1,17 +1,20 @@
 Fullrun::Application.routes.draw do
   
+  resources :bios
+
+
+  resources :officer_bios
   resources :offices
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-    resources :purchases
-    resources :payment_types
-    resources :account_transfers
-    resources :transfers
-    resources :payments
-    resources :charge_types
-    resources :charges
-    resources :purchases
-  
+  resources :purchases
+  resources :payment_types
+  resources :account_transfers
+  resources :transfers
+  resources :payments
+  resources :charge_types
+  resources :charges
+  resources :purchases
   
   root to: 'static_pages#home' 
   
