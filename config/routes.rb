@@ -7,14 +7,18 @@ Fullrun::Application.routes.draw do
   resources :offices
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :purchases
-  resources :payment_types
-  resources :account_transfers
-  resources :transfers
-  resources :payments
-  resources :charge_types
-  resources :charges
-  resources :purchases
+  resources :purchases, :constraints => { :subdomain => 'treasury'}
+  resources :payment_types, :constraints => { :subdomain => 'treasury'}
+  resources :account_transfers, :constraints => {:subdomain => 'treasury'}
+  resources :transfers, :constraints => {:subdomain => 'treasury'} 
+  resources :payments, :constraints => {:subdomain => 'treasury'}
+  resources :charge_types, :constraints => {:subdomain => 'treasury'}
+  resources :charges, :constraints => {:subdomain => 'treasury'}
+  resources :purchases, :constraints => {:subdomain => 'treasury'}
+  
+  #Subdomains
+  match '/', to: 'offices#index', :constraints => { :subdomain => 'treasury'}
+  
   
   root to: 'static_pages#home' 
   

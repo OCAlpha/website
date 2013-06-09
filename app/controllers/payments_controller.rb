@@ -24,6 +24,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   # GET /payments/new.json
   def new
+    params[:collected_by_user_id] = current_user.id
     @payment = Payment.new
     respond_to do |format|
       format.html # new.html.erb

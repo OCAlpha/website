@@ -17,17 +17,17 @@
   </div>
   <div class="field">
     <%= f.label :collected_by_user_id %><br />
-    <%= f.select :collected_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort %>
+    <%= f.select :collected_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort, :selected => current_user.id %>
   </div>
   <div class="field">
-    <%= f.label :purchase_amount %><br />
-    <%= f.text_field :purchase_amount %>
+    <%= f.label :amount_paid %><br />
+    <%= f.text_field :amount_paid %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-large btn-primary"%>
+    <%= f.submit class:"btn btn-large btn-primary"%>
   </div>
 <% end %>
