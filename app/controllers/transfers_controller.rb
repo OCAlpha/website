@@ -1,4 +1,6 @@
 class TransfersController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit]
+  before_filter :exec_user, only: [:update, :destroy]
   # GET /transfers
   # GET /transfers.json
   def index

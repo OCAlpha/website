@@ -1,4 +1,7 @@
 class PurchasesController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit]
+  before_filter :exec_user, only: [:update, :destroy]
+  
   # GET /purchases
   # GET /purchases.json
   def index

@@ -64,11 +64,27 @@ module SessionsHelper
     session[:return_to] = request.url
   end
   
+  def admin?
+    if(signed_in?)
+      current_user.admin?
+    else
+      false
+    end
+  end
+  
   def executor?
-    current_user.executor?
+    if(signed_in?)
+      current_user.executor?
+    else
+      false
+    end
   end
   
   def officer?
-    current_user.officer?
+    if(signed_in?)
+      current_user.officer?
+    else
+      false
+    end
   end
 end

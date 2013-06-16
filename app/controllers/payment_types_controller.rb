@@ -1,4 +1,7 @@
 class PaymentTypesController < ApplicationController
+  before_filter :signed_in_user, only: :index
+  before_filter :exec_user, only: [:edit, :update, :destroy]
+
   # GET /payment_types
   # GET /payment_types.json
   def index

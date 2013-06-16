@@ -1,15 +1,15 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar inner">
       <div class="container">
-        <%= link_to "Agoknights.com", root_path, id:"logo" %>
+        <%= link_to "Agoknights.com", root_url(:host => request.domain), id:"logo" %>
         <nav>
           <ul class="nav pull-right">
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "About Alpha", about_path %></li>
-            <li><%= link_to "Calendar", calendar_path %></li>
+            <li><%= link_to "Home", root_url(:host => request.domain) %></li>
+            <li><%= link_to "About Alpha", about_url(:host => request.domain) %></li>
+            <li><%= link_to "Calendar", calendar_url(:host => request.domain) %></li>
             <%if !signed_in? %>
-                <li><%= link_to "Sign in", signin_path %></li>
-                <li><%= link_to "Sign up!", signup_path %></li>
+                <li><%= link_to "Sign in", signin_url(:host => request.domain) %></li>
+                <li><%= link_to "Sign up!", signup_url(:host => request.domain) %></li>
             <% end %>
           </ul>
         </nav>

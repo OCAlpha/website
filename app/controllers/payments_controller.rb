@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit]
+  before_filter :exec_user, only: [:update, :destroy]
   # GET /payments
   # GET /payments.json
   def index
@@ -24,7 +26,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   # GET /payments/new.json
   def new
-    params[:collected_by_user_id] = current_user.id
+    @user = current_user
     @payment = Payment.new
     respond_to do |format|
       format.html # new.html.erb

@@ -6,11 +6,16 @@
   <% @users.each do |user| %>
     <li>
       <%= gravatar_for user, size:52 %>
-      <% if user == current_user || current_user.executor? %>
-        <%= link_to user.name, user %>
-      <% else %>
-        <%= user.name %>
-      <% end %>
+        <%= link_to user.name, user %><br />
+        <% if user.nickname.present? %>
+          <em>Sir <%= user.nickname %></em><br />
+        <% end %>
+        <% if user.email_public? || officer? %>
+          <%= mail_to "#{user.email}", user.email %> <br />
+         <% end %>
+         <% if user.phone_public? || officer? %>
+           <%= number_to_phone(user.phone) %> <br />
+         <% end %>
     <% if current_user.admin? && !current_user?(user) %>
       | <%= link_to "delete", user, method: :delete, data: {confirm: "You sure?"} %>
     <% end %>  

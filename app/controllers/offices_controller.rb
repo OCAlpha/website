@@ -1,5 +1,5 @@
 class OfficesController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :show]
+  before_filter :signed_in_user, only: [:show]
   before_filter :officer_user, only: [:edit]
   before_filter :admin_user, only: [:delete]
   # GET /offices

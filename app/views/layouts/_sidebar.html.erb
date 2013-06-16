@@ -1,5 +1,5 @@
 <% if signed_in? %>
-  <div class="nav nav-list affix">
+  <div class="nav nav-tabs nav-stacked">
     <li> <%= link_to "Directory", users_path %></li>
     <li id="main-menu" class="dropdown-menu" role="menu" aria-labeledby="dLabel">
         <li id="account-menu" class="dropdown-submenu">
@@ -18,7 +18,7 @@
                 Treasury
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><%= link_to "Make a Payment", newpayment_path, method: "create" %></li>
+                <li><%= link_to "Make a Payment", newpayment_url(:host => "treasury." + request.domain), method: "create" %></li>
                 <li><%= link_to "Process Purchase", clubpurchase_path, method: "create" %></li>
                 <% if executor? %>
                     <li><%= link_to "Charge Money", newcharge_path, method: "create" %></li>

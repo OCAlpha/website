@@ -1,4 +1,4 @@
-<%= form_for(@bio) do |f| %>
+<%= form_for @bio do |f| %>
   <% if @bio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bio.errors.count, "error") %> prohibited this bio from being saved:</h2>
@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="field">
     <%= f.label :hometown %><br />

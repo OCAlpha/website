@@ -1,4 +1,6 @@
 class BiosController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update]
+  before_filter :correct_user, only: [:edit, :update, :destroy]
   # GET /bios
   # GET /bios.json
   def index
@@ -25,7 +27,6 @@ class BiosController < ApplicationController
   # GET /bios/new.json
   def new
     @bio = Bio.new
-    @user = current_user
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @bio }
@@ -41,7 +42,6 @@ class BiosController < ApplicationController
   # POST /bios.json
   def create
     @bio = Bio.new(params[:bio])
-
     respond_to do |format|
       if @bio.save
         format.html { redirect_to @bio, notice: 'Bio was successfully created.' }

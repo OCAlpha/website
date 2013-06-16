@@ -3,7 +3,7 @@ Fullrun::Application.routes.draw do
   resources :bios
 
 
-  resources :officer_bios
+  resources :bios
   resources :offices
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -16,29 +16,40 @@ Fullrun::Application.routes.draw do
   resources :charges, :constraints => {:subdomain => 'treasury'}
   resources :purchases, :constraints => {:subdomain => 'treasury'}
   
-  #Subdomains
-  match '/', to: 'offices#index', :constraints => { :subdomain => 'treasury'}
+  #Treasury Subdomain
+  constraints :subdomain => 'treasury' do
+    match '/', to: 'offices#index'
+    match '/newcharge', to: 'charges#new'
+    match '/newpayment', to: 'payments#new'
+    match '/newtransfer', to: 'transfers#new'
+    match '/clubpurchase', to: 'purchases#new'
+    match '/budgets', to: 'offices#index'
+  end
+  #Rush Subdomain
+  constraints :subdomain => 'rush' do
+    match '/', to: 'static_pages#rush'
+  end
+  #Calendar Subdoman
+  constraints :subdomain => 'calendar' do
+    match '/', to: 'static_pages#calendar'
+  end
+  #Subdomainless Routes
   
+  constraints :subdomain => nil do
+    match '/calendar', to: 'static_pages#calendar'
+    match '/directory', to: 'users#index'
+    match '/officers', to: 'offices#index'
+    match '/signup', to: 'users#new'
+    match '/signin', to: 'sessions#new'
+    match '/signout', to: 'sessions#destroy', via: :delete
   
-  root to: 'static_pages#home' 
+    match '/constitution', to: 'static_pages#constitution'
+    match '/contact', to: 'static_pages#contact'
+    match '/help', to: 'static_pages#help'
+    match '/about', to: 'static_pages#about'
+  end
+  root to: 'static_pages#home'
   
-  match '/signup', to: 'users#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  match '/help', to: 'static_pages#help'
-  match '/about', to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
-  match '/newcharge', to: 'charges#new'
-  match '/newpayment', to: 'payments#new'
-  match '/newtransfer', to: 'transfers#new'
-  match '/clubpurchase', to: 'purchases#new'
-  match '/constitution', to: 'static_pages#constitution'
-  match '/officers', to: 'offices#index'
-  match '/rush', to: 'static_pages#rush'
-  match '/calendar', to: 'static_pages#calendar'
-  match '/directory', to: 'users#index'
-  match '/budgets', to: 'offices#index'
-  match '/home', to: 'static_pages#home'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

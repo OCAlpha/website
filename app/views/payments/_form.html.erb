@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :paid_by_user_id %><br />
-    <%= f.select :paid_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort %>
+    <%= f.select :paid_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort, :selected => @user.id %>
   </div>
   <div class="field">
     <%= f.label :collected_by_user_id %><br />
-    <%= f.select :collected_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort, :selected => current_user.id %>
+    <%= f.select :collected_by_user_id, User.all.collect {|u| [u.name, u.id]}.sort, :selected => @user.id %>
   </div>
   <div class="field">
     <%= f.label :amount_paid %><br />

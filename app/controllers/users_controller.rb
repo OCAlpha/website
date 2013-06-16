@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update]
+  before_filter :signed_in_user, only: [:index, :update]
   before_filter :correct_user, only: [:edit, :update]
   before_filter :admin_user, only: :destroy
   
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    
+    @bio = @user.bio
     @payments = @user.payments
     @charges = @user.charges
     @purchases = @user.purchases
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   end
   
   def update
+    @user = current_user
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
       sign_in @user

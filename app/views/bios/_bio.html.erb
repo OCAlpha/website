@@ -1,0 +1,35 @@
+<div class="row">
+  <table id="user bio">
+    <tr>
+      <td><strong>Hometown: </strong></td>
+      <td><%= bio.hometown %></td>
+    </tr>
+    <tr>
+      <td><strong>Major: </strong></td>
+      <td><%= bio.major %></td>
+    </tr>
+    <tr>
+      <td><strong>Catchphrase: </strong></td>
+      <td><%= bio.catchphrase %></td>
+    </tr>
+    <tr>
+      <td><strong>Favorite Breakfast: </strong></td>
+      <td><%= bio.favorite_breakfast %></td>
+    </tr>
+    <tr>
+      <td><strong>Favorite Superhero: </strong></td>
+      <td><%= bio.favorite_superhero %></td>
+    </tr>
+    <tr>
+      <td><strong>Favorite Bible Verse: </strong></td>
+      <td><%= bio.favorite_verse %></td>
+    </tr>
+    <tr>
+      <td><strong>When I grow up: </strong></td>
+      <td><%= bio.grow_up %></td>
+    </tr>
+  </table>
+  <% if bio.user_id == current_user.id %>
+    <%= link_to "Edit bio", edit_bio_path(bio) %>
+  <% end %>
+</div>
