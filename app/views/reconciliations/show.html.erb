@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Account:</b>
+  <%= @reconciliation.account_id %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%= @reconciliation.balance %>
+</p>
+
+
+<%= link_to 'Edit', edit_reconciliation_path(@reconciliation) %> |
+<%= link_to 'Back', reconciliations_path %>

@@ -1,5 +1,15 @@
 Fullrun::Application.routes.draw do
   
+  resources :reconciliations
+
+
+  resources :accounts
+
+
+  get "accounts/new"
+
+  get "accounts/create"
+
   resources :prayer_notes
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704112847) do
+ActiveRecord::Schema.define(:version => 20130719152858) do
 
   create_table "account_transfers", :force => true do |t|
     t.integer  "from_account_id"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20130704112847) do
   end
 
   create_table "reconciliations", :force => true do |t|
+    t.integer  "account_id"
     t.decimal  "balance"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -132,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20130704112847) do
     t.decimal  "value"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.boolean  "reconciled"
   end
 
   create_table "users", :force => true do |t|

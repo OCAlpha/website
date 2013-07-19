@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to "Transfer", edit_transfer_path(transfer) %></td>
+  <td><%= number_to_currency(transfer.value, :currency => "$") %></td>
+  <td><%= transfer.created_at %></td>
+  <td></td>
+  <td><%= transfer.officer.name %></td>
+  <td></td>
+</tr>

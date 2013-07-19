@@ -1,0 +1,27 @@
+<h1>Listing reconciliations</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Account</th>
+    <th>Balance</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reconciliations.each do |reconciliation| %>
+  <tr>
+    <td><%= reconciliation.account_id %></td>
+    <td><%= reconciliation.balance %></td>
+    <td><%= reconciliation.created_at %></td>
+    <td><%= link_to 'Show', reconciliation %></td>
+    <td><%= link_to 'Edit', edit_reconciliation_path(reconciliation) %></td>
+    <td><%= link_to 'Destroy', reconciliation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reconciliation', new_reconciliation_path %>
