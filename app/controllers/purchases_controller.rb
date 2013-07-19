@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit]
-  before_filter :exec_user, only: [:update, :destroy]
+  before_filter :exec_user, only: [:update, :destroy, :confirm]
   
   # GET /purchases
   # GET /purchases.json
@@ -44,7 +44,7 @@ class PurchasesController < ApplicationController
   # POST /purchases.json
   def create
     @purchase = Purchase.new(params[:purchase])
-
+    @purchase.confirmed = false
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
@@ -82,5 +82,11 @@ class PurchasesController < ApplicationController
       format.html { redirect_to purchases_url }
       format.json { head :no_content }
     end
+  end
+  
+  def confirm
+    @purchase = Purchase.find(params[:id])
+    @purchase.confirmed.toggle!
+    @purchase.save!
   end
 end

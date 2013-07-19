@@ -14,14 +14,13 @@
 #
 
 class Payment < ActiveRecord::Base
-  attr_accessible :amount_paid, :notes, :reconciled, :paid_by_user_id, :collected_by_user_id, :payment_type
+  attr_accessible :amount_paid, :notes, :paid_by_user_id, :collected_by_user_id, :payment_type
   #before_create :setup_payment
   
   belongs_to :payment_type
   belongs_to :payer, :class_name => 'User', :foreign_key => 'paid_by_user_id'
   belongs_to :collector, :class_name => 'User', :foreign_key => 'collected_by_user_id'
   belongs_to :charge
-  
   validates :amount_paid, presence:true
   validates :notes, length: {maximum: 255}
   #validates :reconciled, presence: true
@@ -32,5 +31,6 @@ class Payment < ActiveRecord::Base
   private
   def setup_payment
     self.reconciled = false
+    self.confirmed = false
   end
 end

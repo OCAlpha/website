@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit]
+  before_filter :signed_in_user, only: [:index, :edit, :new]
   before_filter :exec_user, only: [:update, :destroy]
   # GET /payments
   # GET /payments.json
@@ -43,6 +43,11 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
+    if(exec_user?)
+      @payment.confirmed = true
+    else
+      @payment.confirmed = false
+    end
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }

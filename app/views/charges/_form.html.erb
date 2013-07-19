@@ -13,7 +13,10 @@
 
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.select :user_id, User.all.collect {|u| [u.name, u.id]}.sort %>
+    <% User.all.collect {|u| [u.name, u.id]}.sort.each do |user| %>
+      <%= check_box_tag 'user_ids[]', user[1] %>
+      <%= user[0] %><br/>
+    <% end %>
   </div>
   <div class="field" >
     <%= f.label :charge_type_id %><br />

@@ -5,6 +5,7 @@
     <th>Member</th>
     <th>Account</th>
     <th>Value</th>
+    <th>Reconciled</th>
     <th></th>
     <th></th>
   </tr>
@@ -14,6 +15,7 @@
     <td><%= link_to transfer.user.name, edit_transfer_path(transfer) %></td>
     <td><%= link_to transfer.account.name, account_path(transfer.account) %></td>
     <td><%= number_to_currency(transfer.value, :currency => "$") %></td>
+    <td><%= link_to_remote(transfer.reconciliation_status, :url => {:controller => 'transfers', :action => 'reconcile', :transfer_id => transfer}) %></td>
     <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
     <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

@@ -1,6 +1,6 @@
 class TransfersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit]
-  before_filter :exec_user, only: [:update, :destroy]
+  before_filter :exec_user, only: [:update, :destroy, :reconcile]
   # GET /transfers
   # GET /transfers.json
   def index
@@ -27,7 +27,7 @@ class TransfersController < ApplicationController
   # GET /transfers/new.json
   def new
     @transfer = Transfer.new
-
+    @transfer.reconciled = false
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transfer }
@@ -83,3 +83,9 @@ class TransfersController < ApplicationController
     end
   end
 end
+
+  def reconcile
+    @transfer = Transfer.find(params[:id])
+    @transfer.reconciled.toggle!
+    @transfer.save
+  end

@@ -42,9 +42,14 @@ class ChargesController < ApplicationController
   # POST /charges
   # POST /charges.json
   def create
-    @charge = Charge.new(params[:charge])
+    errors = 0
+    params[:user_ids].each do |user|
+      @charge = Charge.new(params[:charge])
+      @charge.user_id = user
+      errors += 1 unless @charge.save
+    end
     respond_to do |format|
-      if @charge.save
+      if errors == 0
         format.html { redirect_to @charge, notice: 'Charge was successfully created.' }
         format.json { render json: @charge, status: :created, location: @charge }
       else

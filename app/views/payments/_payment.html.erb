@@ -1,8 +1,8 @@
-<tr>
+<tr class="<%= (payment.confirmed ? '' : 'error') %>">
   <td><%= link_to "Payment", edit_payment_path(payment) %></td>
   <td><%= number_to_currency(payment.amount_paid, :currency => "$") %></td>
   <td><%= payment.created_at %></td>
-  <td></td>
+  <td><%= (payment.confirmed ? 'Confirmed':'Unconfirmed') %></td>
   <td><%= payment.collector.name %></td>
   <td><%= payment.notes %></td>
 </tr>

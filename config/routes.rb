@@ -43,6 +43,7 @@ Fullrun::Application.routes.draw do
     match '/newtransfer', to: 'transfers#new'
     match '/clubpurchase', to: 'purchases#new'
     match '/budgets', to: 'offices#index'
+    match '/purchases', to: 'purchases#index'
   end
   #Rush Subdomain
   constraints :subdomain => 'rush' do

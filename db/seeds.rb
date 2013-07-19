@@ -15,7 +15,9 @@
                          {name: 'David Lopez',        email: 'david.lopez@eagles.oc.edu',       password: 'chaplain',       password_confirmation: 'chaplain'     },
                          {name: 'John Gause',         email: 'jonathan.gause@eagles.oc.edu',    password: 'service',        password_confirmation: 'service'      },
                          {name: 'Drew Binkley',       email: 'drew.binkley@eagles.oc.edu',      password: 'historian',      password_confirmation: 'historian'    },
-                         {name: 'Ryan Hinds',         email: 'ryan.hinds@eagles.oc.edu',        password: 'rushdirector',   password_confirmation: 'rushdirector' }])
+                         {name: 'Ryan Hinds',         email: 'ryan.hinds@eagles.oc.edu',        password: 'rushdirector',   password_confirmation: 'rushdirector' },
+                         {name: 'Tommy Winberry',     email: 'tommy.winberry@eagles.oc.edu',    password: 'testing',        password_confirmation: 'testing'}
+                         ])
 
 offices = Office.create([ {title: 'President',        email: 'king@agoknights.com',             budget: 150, officer_id: 1, duties: "The President is the chief officer and the administrator of all club affairs. He serves as the representative to the university, and presides over both the officer and club meetings. Nominees for this office must have either previously served as an officer, or their nomination must receive majority approval from the current president, vice-president, and chaplain."},
                           {title: 'Vice President',   email: 'queen@agoknihgts.com',            budget: 800, officer_id: 2, duties: "The Vice President is in charge of organizing and coordinating social events, Fall and Spring Banquets, and official club apparel. The Vice President is also responsible for the affairs of the club in the absence of the President."},
