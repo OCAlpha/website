@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612005256) do
+ActiveRecord::Schema.define(:version => 20130704112847) do
 
   create_table "account_transfers", :force => true do |t|
     t.integer  "from_account_id"
@@ -49,34 +49,12 @@ ActiveRecord::Schema.define(:version => 20130612005256) do
   end
 
   create_table "charges", :force => true do |t|
-    t.integer  "office_id"
     t.integer  "user_id"
     t.integer  "charge_type_id"
     t.decimal  "override_value"
     t.boolean  "reconciled"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-  end
-
-  create_table "microposts", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
-
-  create_table "officer_bios", :force => true do |t|
-    t.string   "hometown"
-    t.string   "favorite_verse"
-    t.string   "major"
-    t.string   "favorite_breakfast"
-    t.string   "favorite_superhero"
-    t.string   "grow_up"
-    t.string   "catchphrase"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
   end
 
   create_table "offices", :force => true do |t|
@@ -100,10 +78,36 @@ ActiveRecord::Schema.define(:version => 20130612005256) do
     t.integer  "collected_by_user_id"
     t.decimal  "amount_paid"
     t.string   "notes"
-    t.boolean  "reconciled"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.boolean  "reconciled",           :default => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "charge_id"
+  end
+
+  create_table "prayer_followups", :force => true do |t|
+    t.integer  "prayer_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "prayer_notes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "request_id"
+    t.text     "content"
+    t.boolean  "anonymous"
+    t.boolean  "public"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "prayers", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "request"
+    t.boolean  "private"
+    t.boolean  "anonymous"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "purchases", :force => true do |t|
@@ -117,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20130612005256) do
   end
 
   create_table "reconciliations", :force => true do |t|
-    t.float    "balance"
+    t.decimal  "balance"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

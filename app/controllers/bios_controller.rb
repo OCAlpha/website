@@ -1,6 +1,7 @@
 class BiosController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user, only: [:edit, :update, :destroy]
+  before_filter :unbioed_user, only: :create
   # GET /bios
   # GET /bios.json
   def index

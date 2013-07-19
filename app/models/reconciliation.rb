@@ -3,7 +3,7 @@
 # Table name: reconciliations
 #
 #  id         :integer          not null, primary key
-#  balance    :float
+#  balance    :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

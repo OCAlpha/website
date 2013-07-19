@@ -1,4 +1,4 @@
-<h1>Listing purchases</h1>
+<h1>All Purchases</h1>
 
 <table class="table table-bordered">
   <tr>
@@ -13,9 +13,9 @@
 
 <% @purchases.each do |purchase| %>
   <tr>
-    <td><%= purchase.user_id %></td>
-    <td><%= purchase.purchase_amount %></td>
-    <td><%= number_to_currency(purchase.office_id, :unit => "$") %></td>
+    <td><%= link_to purchase.user.name, user_path(purchase.user) %></td>
+    <td><%= number_to_currency purchase.purchase_amount, :currency => "$" %></td>
+    <td><%= link_to purchase.office.title, office_path(purchase.office) %></td>
     <td><%= purchase.note %></td>
     <td><%= link_to 'Show', purchase %></td>
     <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>

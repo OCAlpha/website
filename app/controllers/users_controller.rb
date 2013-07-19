@@ -18,9 +18,11 @@ class UsersController < ApplicationController
     @charges = @user.charges
     @purchases = @user.purchases
     @transfers = @user.transfers
+    @collections = @user.collections
     
     @payments_sum = @payments.sum(:amount_paid)
     @charges_sum = @charges.sum(:override_value)
+    @collections_sum = @collections.sum(:amount_paid)
     @purchases_sum = @purchases.sum(:purchase_amount)
     @transfers_sum = @transfers.sum(:value)
   end

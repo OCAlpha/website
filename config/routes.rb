@@ -1,5 +1,14 @@
 Fullrun::Application.routes.draw do
   
+  resources :prayer_notes
+
+
+  resources :prayer_followups
+
+
+  resources :prayers
+
+
   resources :bios
 
 

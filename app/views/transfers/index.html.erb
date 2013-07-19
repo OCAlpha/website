@@ -1,4 +1,4 @@
-<h1>Listing transfers</h1>
+<h1>All Transfers</h1>
 
 <table class="table table-bordered">
   <tr>
@@ -11,8 +11,8 @@
 
 <% @transfers.each do |transfer| %>
   <tr>
-    <td><%= transfer.user.name %></td>
-    <td><%= transfer.account.name %></td>
+    <td><%= link_to transfer.user.name, edit_transfer_path(transfer) %></td>
+    <td><%= link_to transfer.account.name, account_path(transfer.account) %></td>
     <td><%= number_to_currency(transfer.value, :currency => "$") %></td>
     <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
     <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

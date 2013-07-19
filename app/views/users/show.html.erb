@@ -15,32 +15,40 @@
           <th>Notes</th>
         </tr>
         <%= render @charges %>
+        <%= render @collections %>
         <%= render @payments %>
         <%= render @purchases %>
         <%= render @transfers %>
       </table>
-      
+    <% end %>
       <div class="row">
         <div class="span4">
-          <h3>Summary</h3>
-          <table class="table table-condensed">
-            <!--Insert mouseover text -->
-            <tr><td><b data-toggle="tooltip" title="Dues, event costs or purchases">Charged to date:</b></td> <td><%= number_to_currency(@charges_sum, :currency => "$")%></td></tr>
-            <tr><td><b data-toggle="tooltip" title="Money paid to an officer">Payments made:</b></td> <td><%= number_to_currency(@payments_sum, :currency => "$")%></td></tr>
-            <tr><td><b data-toggle="tooltip" title="Purchases made on Alpha's behalf that should be reimbursed">Purchases made:</b></td> <td><%= number_to_currency(@purchases_sum, :currency => "$")%></td></tr>
-            <tr><td><b data-toggle="tooltip" title="Money paid directly to an account (the cash box, checking account, or Paypal)">Transfers to accounts: </b></td> <td><%= number_to_currency(@transfers_sum, :currency => "$")%></td></tr>
-            <tr class="info"><td><b data-toggle="tooltip" title="Charges minus Payments, Purchases, and Transfers">Total Outstanding:</b></td> <td><strong><%= number_to_currency(@charges_sum - @payments_sum - @purchases_sum - @transfers_sum, :currency => "$")%></strong></td></tr>
-          </table>
+          <% if current_user.executor? || current_user?(@user) %>
+            <h3>Summary</h3>
+            <table class="table table-condensed">
+              <!--Insert mouseover text -->
+              <tr><td><b data-toggle="tooltip" title="Dues, event costs or purchases">Charged to date:</b></td> <td><%= number_to_currency(@charges_sum, :currency => "$")%></td></tr>
+              <tr><td><b data-toggle="tooltip" title="Money paid to an officer">Payments made:</b></td> <td><%= number_to_currency(@payments_sum, :currency => "$")%></td></tr>
+              <% if current_user.officer? %>
+                <tr><td><b data-toggle="tooltip" title="Money paid by another member to you">Collected:</b></td><td><%= number_to_currency(@collections_sum, :currency=> "$")%></td></tr>
+              <% end %>
+              <tr><td><b data-toggle="tooltip" title="Purchases made on Alpha's behalf that should be reimbursed">Purchases made:</b></td> <td><%= number_to_currency(@purchases_sum, :currency => "$")%></td></tr>
+              <tr><td><b data-toggle="tooltip" title="Money paid directly to an account (the cash box, checking account, or Paypal)">Transfers to accounts: </b></td> <td><%= number_to_currency(@transfers_sum, :currency => "$")%></td></tr>
+              <tr class="info"><td><b data-toggle="tooltip" title="Charges minus Payments, Purchases, and Transfers">Total Outstanding:</b></td> <td><strong><%= number_to_currency(@charges_sum - @payments_sum - @purchases_sum - @transfers_sum, :currency => "$")%></strong></td></tr>
+            </table>
+          <% end %>
         </div>
-        
         <div class="span4 offset1">
           <h3>Bio</h3>
-            <% if @user.bio.nil? %>
+          <% if @bio.nil? && @user != current_user %>
+            <%=@user.name %> hasn't created a bio.
+          <% else %>
+            <% if current_user == @user && @bio.nil? %>
               You haven't created a bio.  <strong><%= link_to "Create one!", new_bio_path %></strong>
             <% else %>
               <%= render @bio %>
-            <% end %>
+          <% end %>
+        <% end %>
         </div>
     </div>
-  <% end %>
 </div>

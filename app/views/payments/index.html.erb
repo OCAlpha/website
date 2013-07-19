@@ -1,5 +1,4 @@
-<h1>Payment History</h1>
-
+<h1>All Payments</h1>
 <table class="table table-bordered">
   <tr>
     <th>Paid by user</th>
@@ -14,9 +13,9 @@
 
 <% @payments.each do |payment| %>
   <tr>
-    <td><%= payment.paid_by_user_id %></td>
-    <td><%= payment.collected_by_user_id %></td>
-    <td><%= payment.amount_paid %></td>
+    <td><%= link_to payment.payer.name, user_path(payment.payer) %></td>
+    <td><%= link_to payment.collector.name, user_path(payment.collector) %></td>
+    <td><%= number_to_currency(payment.amount_paid, :currency => "$") %></td>
     <td><%= payment.notes %></td>
     <td><%= payment.reconciled %></td>
     <td><%= link_to 'Show', payment %></td>

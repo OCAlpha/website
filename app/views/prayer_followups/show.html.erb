@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Prayer:</b>
+  <%= @prayer_followup.prayer_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @prayer_followup.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_prayer_followup_path(@prayer_followup) %> |
+<%= link_to 'Back', prayer_followups_path %>

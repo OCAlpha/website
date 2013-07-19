@@ -1,0 +1,31 @@
+<h1>Listing prayer_notes</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Request</th>
+    <th>Content</th>
+    <th>Anonymous</th>
+    <th>Public</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @prayer_notes.each do |prayer_note| %>
+  <tr>
+    <td><%= prayer_note.user_id %></td>
+    <td><%= prayer_note.request_id %></td>
+    <td><%= prayer_note.content %></td>
+    <td><%= prayer_note.anonymous %></td>
+    <td><%= prayer_note.public %></td>
+    <td><%= link_to 'Show', prayer_note %></td>
+    <td><%= link_to 'Edit', edit_prayer_note_path(prayer_note) %></td>
+    <td><%= link_to 'Destroy', prayer_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prayer note', new_prayer_note_path %>

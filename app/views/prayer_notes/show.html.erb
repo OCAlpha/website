@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @prayer_note.user_id %>
+</p>
+
+<p>
+  <b>Request:</b>
+  <%= @prayer_note.request_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @prayer_note.content %>
+</p>
+
+<p>
+  <b>Anonymous:</b>
+  <%= @prayer_note.anonymous %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%= @prayer_note.public %>
+</p>
+
+
+<%= link_to 'Edit', edit_prayer_note_path(@prayer_note) %> |
+<%= link_to 'Back', prayer_notes_path %>

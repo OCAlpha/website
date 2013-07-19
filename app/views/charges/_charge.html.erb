@@ -1,8 +1,8 @@
 <tr>
-  <td>Charge</td>
+  <td><%= link_to 'Charge', edit_charge_path(charge) %></td>
   <td><%= number_to_currency(charge.amount, :currency => "$") %></td>
   <td><%= charge.created_at %></td>
   <td><%= charge.charge_type.category %></td>
-  <td><%= charge.office.title %></td>
+  <td><%= charge.charge_type.office.title %></td>
   <td></td>
 </tr>

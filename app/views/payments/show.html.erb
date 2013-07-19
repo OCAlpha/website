@@ -2,17 +2,17 @@
 
 <p>
   <b>Paid by user:</b>
-  <%= @payment.paid_by_user_id %>
+  <%= @payment.payer.name %>
 </p>
 
 <p>
   <b>Collected by user:</b>
-  <%= @payment.collected_by_user_id %>
+  <%= @payment.collector.name %>
 </p>
 
 <p>
   <b>Amount paid:</b>
-  <%= @payment.amount_paid %>
+  <%= number_to_currency(@payment.amount_paid, :currency => "$") %>
 </p>
 
 <p>
