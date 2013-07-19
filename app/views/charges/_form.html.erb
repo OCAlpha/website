@@ -12,11 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <% User.all.collect {|u| [u.name, u.id]}.sort.each do |user| %>
-      <%= check_box_tag 'user_ids[]', user[1] %>
-      <%= user[0] %><br/>
-    <% end %>
+    <div class="row">
+      <div class="span6">
+        Active Users<br />
+        <% User.where(active: true).collect {|u| [u.name, u.id]}.sort.each do |user| %>
+          <%= check_box_tag 'user_ids[]', user[1] %>
+          <%= user[0] %><br/>
+        <% end %>
+      </div>
+      <div class="span6">
+        Inactive Users<br/>
+        <% User.where(active: false).collect {|u| [u.name, u.id]}.sort.each do |user| %>
+          <%= check_box_tag 'user_ids[]', user[1] %>
+          <%= user[0] %><br/>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="field" >
     <%= f.label :charge_type_id %><br />

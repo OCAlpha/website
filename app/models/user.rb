@@ -19,7 +19,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :nickname, :story, :phone, :email_public, :phone_public, :testimonial
+  attr_accessible :email, :active, :name, :password, :password_confirmation, :nickname, :story, :phone, :email_public, :phone_public, :testimonial
   has_secure_password
   
   has_one :bio

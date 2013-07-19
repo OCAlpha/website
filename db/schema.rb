@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719183812) do
+ActiveRecord::Schema.define(:version => 20130719231126) do
 
   create_table "account_transfers", :force => true do |t|
     t.integer  "from_account_id"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20130719183812) do
     t.boolean  "email_public"
     t.boolean  "phone_public"
     t.text     "testimonial"
+    t.boolean  "active"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

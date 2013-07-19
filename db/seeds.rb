@@ -6,17 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  payment_types = PaymentType.create([{name: 'Cash'}, {name: 'Check'}])
- officers = User.create([{name: 'Chris Rich',         email: 'christopher.rich@eagles.oc.edu',  password: 'president',      password_confirmation: 'president'    },
-                         {name: 'Justin Bullard',     email: 'justin.bullard@eagles.oc.edu',    password: 'vicepresident',  password_confirmation: 'vicepresident'},
-                         {name: 'Tyler Wilson',       email: 'tyler.wilson@eagles.oc.edu',      password: 'treasurer',      password_confirmation: 'treasurer'    },
-                         {name: 'Bryan Nix',          email: 'bryan.nix@eagles.oc.edu',         password: 'springsing',     password_confirmation: 'springsing'   },
-                         {name: 'Charlie OHara',      email: 'charles.ohara@eagles.oc.edu',     password: 'secretary',      password_confirmation: 'secretary'    },
-                         {name: 'Athletic Director',  email: 'sergeant-at-arms@agoknights.com', password: 'athletic',       password_confirmation: 'athletic'     },
-                         {name: 'David Lopez',        email: 'david.lopez@eagles.oc.edu',       password: 'chaplain',       password_confirmation: 'chaplain'     },
-                         {name: 'John Gause',         email: 'jonathan.gause@eagles.oc.edu',    password: 'service',        password_confirmation: 'service'      },
-                         {name: 'Drew Binkley',       email: 'drew.binkley@eagles.oc.edu',      password: 'historian',      password_confirmation: 'historian'    },
-                         {name: 'Ryan Hinds',         email: 'ryan.hinds@eagles.oc.edu',        password: 'rushdirector',   password_confirmation: 'rushdirector' },
-                         {name: 'Tommy Winberry',     email: 'tommy.winberry@eagles.oc.edu',    password: 'testing',        password_confirmation: 'testing'}
+ officers = User.create([{name: 'Chris Rich',         email: 'christopher.rich@eagles.oc.edu',  password: 'president',      password_confirmation: 'president'    , active: true},
+                         {name: 'Justin Bullard',     email: 'justin.bullard@eagles.oc.edu',    password: 'vicepresident',  password_confirmation: 'vicepresident', active: true},
+                         {name: 'Tyler Wilson',       email: 'tyler.wilson@eagles.oc.edu',      password: 'treasurer',      password_confirmation: 'treasurer'    , active: true},
+                         {name: 'Bryan Nix',          email: 'bryan.nix@eagles.oc.edu',         password: 'springsing',     password_confirmation: 'springsing'   , active: true},
+                         {name: 'Charlie OHara',      email: 'charles.ohara@eagles.oc.edu',     password: 'secretary',      password_confirmation: 'secretary'    , active: true},
+                         {name: 'Athletic Director',  email: 'sergeant-at-arms@agoknights.com', password: 'athletic',       password_confirmation: 'athletic'     , active: true},
+                         {name: 'David Lopez',        email: 'david.lopez@eagles.oc.edu',       password: 'chaplain',       password_confirmation: 'chaplain'     , active: true},
+                         {name: 'John Gause',         email: 'jonathan.gause@eagles.oc.edu',    password: 'service',        password_confirmation: 'service'      , active: true},
+                         {name: 'Drew Binkley',       email: 'drew.binkley@eagles.oc.edu',      password: 'historian',      password_confirmation: 'historian'    , active: true},
+                         {name: 'Ryan Hinds',         email: 'ryan.hinds@eagles.oc.edu',        password: 'rushdirector',   password_confirmation: 'rushdirector' , active: true},
+                         {name: 'Tommy Winberry',     email: 'tommy.winberry@eagles.oc.edu',    password: 'testing',        password_confirmation: 'testing'      , active: false}
                          ])
 
 offices = Office.create([ {title: 'President',        email: 'king@agoknights.com',             budget: 150, officer_id: 1, duties: "The President is the chief officer and the administrator of all club affairs. He serves as the representative to the university, and presides over both the officer and club meetings. Nominees for this office must have either previously served as an officer, or their nomination must receive majority approval from the current president, vice-president, and chaplain."},
