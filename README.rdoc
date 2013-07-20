@@ -21,27 +21,31 @@ continuing to develop new features.
 5. A Treasury system that allows members to see how much they owe, office and
        club budgets, and purchases made by club.  This system also processes
        charges and payments to club and transfers to and from club bank accounts
-
+6. An active member directory with nicknames, bios, and privately-settable phone
+       and email addresses
 == Planned Features (in no particular order)
 
 * A Spring Sing page with embedded videos of past shows, historical records, etc.
 * Event Signups and Sign-ins for members and rushees
-* Officer Bios page that each officer can edit their own bio
 * Online store for available merchandise
 * Alum logins with Facebook or email for directory and Knews
 * Knightly Knews section editable by Secretary (blog-style functionality)
 * Resource Tracker for Alpha's stuff
 * Resource tracker for Alpha's Members' stuff (a library system of sorts
 to show who has what movies, books, etc. that they are willing to share)
-* A mobile version of the site
 * Web page QR codes for mobile advertising
-* Prayer wall with follow-up capability that supports public and anonymous
-prayer requests
 * Links in the treasury and online store to make payments with Paypal
 * Additional features for current members
   
   If you have any ideas to add to this list, email tommy.winberry@eagles.oc.edu
- 
+
+== Completed Features
+* Officer Bios page that each officer can edit their own bio--All members have bios!
+* A mobile version of the site--Designed with Responsive Twitter Bootstrap, mobile size supported by default
+
+== Features in Development
+* Prayer wall with follow-up capability that supports public and anonymous prayer requests
+
 
 == Page Permissions
 * Public pages can be accessed by anyone, logged in or not
@@ -51,6 +55,7 @@ prayer requests
  - Constitution
  - Contact
  - Rush
+ - Current Officers
 * Club pages can only be accessed by logged in users
  * Directory
  * Budgets
@@ -66,14 +71,10 @@ currently planned features by OC's fall semester in September.
 
 == To-Do list
 
-1. Find and fix bug that prevents Payments from being processed
-2. Create Accounts CRUD controllers and views accessible only to executors
-3. Verify permissions on all pages
-4. Implement Payment/Charge/Purchase/Transfer confirmation for non-officers
-5. Add features to Directory Page
+1. Verify permissions on all pages
+2. Implement Payment/Charge/Purchase/Transfer confirmation for non-officers
+3. Add features to Directory Page
  * Executors can see member's current balance
- * Include public contact info (email/phone if made public by user)
-6. Start implementing Reconciliation system in treasury
-7. Refactor site to include namespaces for Treasury and future expansions
-8. Start implementing other planned features (details to be added to to-do list as features are implemented)
-9. Get a private repository...
+4. Start implementing Reconciliation system in treasury
+5. Start implementing other planned features (details to be added to to-do list as features are implemented)
+6. Get a private repository...
