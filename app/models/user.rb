@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
+  validates :active, presence: true
   
   def officer?
     !self.office.nil?
@@ -50,6 +51,26 @@ class User < ActiveRecord::Base
       return true
     end
     return false
+  end
+  
+  def current_balance
+    @balance = 0
+    Charge.find_all_by_user_id(self.id).each do |charge|
+      @balance += charge.override_value
+    end
+    Payment.find_all_by_paid_by_user_id(self.id).each do |payment|
+      @balance -= payment.amount_paid
+    end
+    Payment.find_all_by_collected_by_user_id(self.id).each do |collection|
+      @balance += collection.amount_paid
+    end
+    Purchase.find_all_by_user_id(self.id).each do |purchase|
+      @balance -= purchase.purchase_amount
+    end
+    Transfer.find_all_by_officer_user_id(self.id).each do |transfer|
+      @balance -= transfer.value
+    end
+    return @balance
   end
   
   private

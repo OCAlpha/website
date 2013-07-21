@@ -11,7 +11,7 @@
 #
 
 class Transfer < ActiveRecord::Base
-  attr_accessible :account_id, :user, :value
+  attr_accessible :account_id, :user, :value, :officer_user_id, :note
   belongs_to :account
   belongs_to :user, class_name: 'User', foreign_key: 'officer_user_id'
   

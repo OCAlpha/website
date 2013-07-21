@@ -7,6 +7,7 @@
             <li><%= link_to "Home", root_url(:host => request.domain) %></li>
             <li><%= link_to "About Alpha", about_url(:host => request.domain) %></li>
             <li><%= link_to "Calendar", calendar_url(:host => request.domain) %></li>
+            <li><%= link_to "Officers", offices_url(:host => request.domain) %></li>
             <%if !signed_in? %>
                 <li><%= link_to "Sign in", signin_url(:host => request.domain) %></li>
                 <li><%= link_to "Sign up!", signup_url(:host => request.domain) %></li>

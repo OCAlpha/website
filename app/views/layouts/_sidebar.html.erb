@@ -1,5 +1,5 @@
 <% if signed_in? %>
-  <div class="nav nav-tabs nav-stacked">
+  <div class="nav nav-tabs nav-stacked affix">
     <li> <%= link_to "Directory", users_path %></li>
     <li id="main-menu" class="dropdown-menu" role="menu" aria-labeledby="dLabel">
         <li id="account-menu" class="dropdown-submenu">
@@ -28,22 +28,7 @@
             </ul>
         </li>
         <% if executor? %>
-          <li id="treasury-admin-menu" class="dropdown-submenu">
-            <a href = "#" tabindex = "-1">
-                Treasury Admin
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><%= link_to "All Payments", payments_path(:host => "treasury." + request.domain) %></li>
-                <li><%= link_to "All Purchases", purchases_path(:host => "treasury." + request.domain) %></li>
-                <li><%= link_to "All Charges", charges_path(:host => "treasury." + request.domain) %></li>
-                <li><%= link_to "All Transfers", transfers_path(:host => "treasury." + request.domain) %></li>
-                <li><%= link_to "All X-Acct Transfers", account_transfers_path %></li>
-                <li><%= link_to "View Officers/Budgets", offices_path %></li>
-                <li><%= link_to "View Charge Types", charge_types_path %></li>
-                <li><%= link_to "All Accounts", accounts_path %></li>
-                <li><%= link_to "Reconcile Accounts", reconciliations_path %></li>
-            </ul>
-        </li>      
+          <%= render '/layouts/treasury_admin' %>
         <% end %>
     </li>
   </div>

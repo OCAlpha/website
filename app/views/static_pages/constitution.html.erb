@@ -62,17 +62,11 @@
     <h4>Section 1</h4>
       <p>The Alpha officers shall be elected by a majority vote of the club members. The officers shall be:
       <ul>
-        <li>President</li>
-        <li>Vice President</li>
-        <li>Secretary</li>
-        <li>Treasurer</li>
-        <li>Chaplain</li>
-        <li>Social Service Director</li>
-        <li>Athletic Director</li>
-        <li>Historian</li>
-        <li>Rush/Public Relations Director</li>
-        <li>Spring Sing Director</li> </p>
-      </ul>
+        <% Office.all.each do |office| %>
+          <li><%= office.title %></li>
+        <% end %>
+       </ul>
+      </p>
     <h4>Section 2</h4>
       <p>Officers must have attended OC for the semester immediately preceding their term and have completed at least 24 credit hours in the last 2 semesters. They shall also maintain good standing with the University as well as good chapel standing.  They shall be elected at least two weeks before school is out in the spring. New officers are to begin assisting the current officers the day they are elected. </p>
     <h4>Section 3</h4>
@@ -80,38 +74,12 @@
       Each officer must read the entirety of the constitution.</p>
     <h4>Section 4</h4>
       <p>The duties of all officers shall be as follows:
-      <!--A good place for refactoring.  All offices contain ther duties, we could make this happen in a loop -->
         <dl>
-          <dt><a href="mailto:king@agoknights.com">President <small><i>King</i></small></a></dt>
-          <p><small>Current President: <%= User.find_by_id(@king[:officer_id]).name %></small></p>
-            <dd>The President is the chief officer and the administrator of all club affairs. He serves as the representative to the university, and presides over both the officer and club meetings. Nominees for this office must have either previously served as an officer, or their nomination must receive majority approval from the current president, vice-president, and chaplain.</dd>
-          <dt><a href="mailto:queen@agoknights.com">Vice President <small><i>Queen</i></small></a></dt>
-            <p><small>Current Vice President: <%= User.find_by_id(@queen[:officer_id]).name %></small></p>
-            <dd>The Vice President is in charge of organizing and coordinating social events, Fall and Spring Banquets, and official club apparel. The Vice President is also responsible for the affairs of the club in the absence of the President.</dd>
-          <dt><a href="mailto:scribe@agoknights.com">Secretary <small><i>Scribe</i></small></a></dt>
-            <small>Current Secretary: <%= User.find_by_id(@scribe[:officer_id]).name %></small>
-            <dd>The Secretary serves as the Editor-in-Chief of the club newsletter, The Knightly News, and is responsible for the distribution of said newsletter. He is also responsible for the publication and distribution of a club directory for the entire year, keeping accurate notes of all club meetings and voting results, and obtaining the club stationary.</dd>
-          <dt><a href="mailto:taxcollector@agoknights.com">Treasurer <small><i>Tax Collector</i></small></a></dt>
-            <small>Current Treasurer: <%= User.find_by_id(@taxer[:officer_id]).name %></small>
-            <dd>The Treasurer is responsible for collecting dues, handling all money transactions, and keeping an accurate record of the club's finances.</dd>
-          <dt><a href="mailto:bishop@agoknights.com">Chaplain <small><i>Bishop</i></small></a></dt>
-            <small>Current Chaplain: <%= User.find_by_id(@bishop[:officer_id]).name %></small>
-            <dd>The Chaplain is in charge of all devotionals that the club organizes. The Chaplain is also responsible for the spiritual guidance and personal development of the club and her members.</dd>
-          <dt><a href="mailto:friar@agoknights.com">Social Service Director <small><i>Friar</i></small></a></dt>
-            <small>Current Social Service Director: <%= User.find_by_id(@friar[:officer_id]).name %></small>
-            <dd>The Social Service Director is responsible for the planning and organizing of all social service events.</dd>
-          <dt><a href="mailto:sergeant-at-arms@agoknights.com">Athletic Director <small><i>Sergeant-At-Arms</i></small></a></dt>
-            <small>Current Athletic Director: <%= User.find_by_id(@sergeant[:officer_id]).name %></small>
-            <dd>The Athletic Director is responsible for organizing and coordinating all athletic events, appointing coaches, and assigning members to leagues. He or his proxy is required to attend all meetings called by the campus Intramural Director.</dd>
-          <dt><a href="mailto:wizard@agoknights.com">Historian <small><i>Wizard</i></small></a></dt>
-            <small>Current Historian: <%= User.find_by_id(@wizard[:officer_id]).name %></small>
-            <dd>The Historian is responsible for keeping a photographic record of various club activities, producing a year-end video and all alumni relations including Alpha's homecoming events. </dd>
-          <dt><a href="mailto:ambassador@agoknights.com">Rush/Public Relations Director <small><i>Ambassador</i></small></a></dt>
-            <small>Current Rush/Public Relations Director: <%= User.find_by_id(@ambassador[:officer_id]).name %></small>
-            <dd>The Rush/PR Director is responsible for the recruitment of new members each Fall and Spring trimester. He is responsible for organizing and coordinating all Rush and recruitment activities including induction, knighting, the joust, and the feast.  It is recommended that the rush director be an individual who has participated in Fall rush.  He is also responsible for relations with other clubs, including but not limited to Unity for Spring Sing in the Spring.</dd>
-          <dt><a href="mailto:jester@agoknights.com">Spring Sing Director <small><i>Court Jester</i></small></a></dt>  
-            <small>Current Spring Sing Director: <%=User.find_by_id(@jester[:officer_id]).name %></small>
-            <dd>The Spring Sing Director is responsible for producing a Spring Sing show. The Director is responsible for all aspects of the show such as costumes, choreography, music, etc.</dd>
+          <% Office.all.each do |office| %>
+          <dt><%= mail_to office.email, office.title %>  <small><em><%= office.nickname %></em></small> </dt>
+          <p><small>Current <%= office.title %>: <%= mail_to office.officer.email, office.officer.name %></small></p>
+            <dd><%= office.duties %></dd>
+        <% end %>
         </dl>
       </p>
     <h4>Section 5</h4>

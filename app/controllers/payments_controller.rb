@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
-    if(exec_user?)
+    if(current_user.executor?)
       @payment.confirmed = true
     else
       @payment.confirmed = false

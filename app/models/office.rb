@@ -13,7 +13,7 @@
 #
 
 class Office < ActiveRecord::Base
-  attr_accessible :budget, :title, :officer_id, :duties, :email
+  attr_accessible :budget, :title, :officer_id, :duties, :email, :nickname
   
   belongs_to :officer, class_name: 'User', foreign_key: 'officer_id'
   has_many :charge_types

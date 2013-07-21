@@ -44,3 +44,46 @@ offices = Office.create([ {title: 'President',        email: 'king@agoknights.co
                                    {category: 'Alpha Mug',        value: 8,  office_id: 2}])
  accounts = Account.create([{name: 'Cash box'}, {name: 'Checking Account'}, {name: 'Paypal'}])
 
+
+charges = Charge.create([{charge_type_id: 1, user_id: 1, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 2, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 3, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 4, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 5, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 6, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 7, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 8, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 9, override_value: 40, reconciled: false},
+                         {charge_type_id: 1, user_id: 10, override_value: 40, reconciled: false},
+                         {charge_type_id: 3, user_id: 1, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 2, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 3, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 4, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 5, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 6, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 7, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 8, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 9, override_value: 15, reconciled: false},
+                         {charge_type_id: 3, user_id: 10, override_value: 15, reconciled: false}])
+
+payments = Payment.create([{paid_by_user_id: 1, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 2, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 3, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 4, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 5, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 7, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 8, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 9, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"},
+                           {paid_by_user_id: 10, collected_by_user_id: 3, amount_paid: 55, notes: "Shirt and Dues"}
+                           ])
+purchases = Purchase.create([{user_id: 1, purchase_amount: 95.17, office_id: 1, purchase_location: "Amazon.com", note:"Officer Gifts"},
+                             {user_id: 2, purchase_amount: 34.00, office_id: 9, purchase_location: "Walmart", note:"Tiki Torch Fluid"},
+                             {user_id: 11, purchase_amount: 191.32, office_id: 9, purchase_location: "Slaughterhouse", note: "Whole hog"}
+                             ])
+transfers = Transfer.create([{officer_user_id: 3, account_id:1, value: 495, note: "Funds to cash box"},
+                             {officer_user_id: 6, account_id:3, value: 55, note: "Paypal payment from Henoc"}
+                             ])
+
+account_transfers = AccountTransfer.create([{from_account_id:1, to_account_id: 2, amount: 450, note: "Cash box overflowing with C-notes"},
+                                             {from_account_id:3, to_account_id: 2, amount: 55, note:"Paypal to checking"}
+                                             ])

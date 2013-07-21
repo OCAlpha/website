@@ -11,6 +11,6 @@
 #
 
 class AccountTransfer < ActiveRecord::Base
-  attr_accessible :amount, :from_account_id, :to_account_id
+  attr_accessible :amount, :from_account_id, :to_account_id, :note
   
 end

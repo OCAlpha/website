@@ -29,9 +29,10 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.active = false
     if(@user.save)
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Your account has been created and is awaiting officer activation."
       redirect_to @user
     else
       render 'new'

@@ -18,7 +18,7 @@ module SessionsHelper
   
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
+    redirect_to(root_path) unless current_user?(@user) and current_user.active
   end
   
   def officer_user
