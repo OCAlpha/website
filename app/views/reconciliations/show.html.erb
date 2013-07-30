@@ -2,12 +2,12 @@
 
 <p>
   <b>Account:</b>
-  <%= @reconciliation.account_id %>
+  <%= @reconciliation.account.name %>
 </p>
 
 <p>
   <b>Balance:</b>
-  <%= @reconciliation.balance %>
+  <%= number_to_currency(@reconciliation.balance, :currency => "$" %>
 </p>
 
 

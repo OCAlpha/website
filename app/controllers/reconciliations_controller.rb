@@ -1,4 +1,6 @@
 class ReconciliationsController < ApplicationController
+  before_filter :exec_user
+
   # GET /reconciliations
   # GET /reconciliations.json
   def index

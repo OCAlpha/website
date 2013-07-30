@@ -12,8 +12,8 @@
 
 <% @reconciliations.each do |reconciliation| %>
   <tr>
-    <td><%= reconciliation.account_id %></td>
-    <td><%= reconciliation.balance %></td>
+    <td><%= reconciliation.account.name %></td>
+    <td><%= number_to_currency reconciliation.balance, :currency => "$" %></td>
     <td><%= reconciliation.created_at %></td>
     <td><%= link_to 'Show', reconciliation %></td>
     <td><%= link_to 'Edit', edit_reconciliation_path(reconciliation) %></td>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Reconciliation', new_reconciliation_path %>
+<%= link_to 'Reconcile an Account', new_reconciliation_path, :class => "btn" %>

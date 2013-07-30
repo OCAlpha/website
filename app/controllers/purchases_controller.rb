@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit]
+  before_filter :signed_in_user, only: [:index, :edit, :new]
   before_filter :exec_user, only: [:update, :destroy, :confirm]
   
   # GET /purchases

@@ -27,11 +27,11 @@ class User < ActiveRecord::Base
   has_many :payments, :class_name => "Payment", :foreign_key => "paid_by_user_id"
   has_many :charges
   has_many :transfers, :class_name => "Transfer", :foreign_key => "officer_user_id"
-  before_save {email.downcase!}
-  before_save :create_remember_token
   has_one :office, :class_name => "Office", :foreign_key => "officer_id"
   has_many :purchases
-  
+
+  before_save {email.downcase!}
+  before_save :create_remember_token  
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}

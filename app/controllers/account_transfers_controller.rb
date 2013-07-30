@@ -1,5 +1,5 @@
 class AccountTransfersController < ApplicationController
-  before_filter :exec_user, only: [:index, :create, :update, :destroy]
+  before_filter :exec_user
   # GET /account_transfers
   # GET /account_transfers.json
   def index

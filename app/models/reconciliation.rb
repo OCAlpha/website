@@ -11,7 +11,7 @@
 class Reconciliation < ActiveRecord::Base
   attr_accessible :account_id, :balance
   
+  belongs_to :account
   validates :account_id, presence: true
-  validates :account, :associated => true
   validates :balance, presence: true
 end
