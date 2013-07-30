@@ -30,7 +30,11 @@ Fullrun::Application.routes.draw do
   resources :payment_types, :constraints => { :subdomain => 'treasury'}
   resources :account_transfers, :constraints => {:subdomain => 'treasury'}
   resources :transfers, :constraints => {:subdomain => 'treasury'} 
-  resources :payments, :constraints => {:subdomain => 'treasury'}
+  resources :payments, :constraints => {:subdomain => 'treasury'} do
+    member do
+      put 'confirm'
+    end
+  end
   resources :charge_types, :constraints => {:subdomain => 'treasury'}
   resources :charges, :constraints => {:subdomain => 'treasury'}
   resources :purchases, :constraints => {:subdomain => 'treasury'}
@@ -44,6 +48,7 @@ Fullrun::Application.routes.draw do
     match '/clubpurchase', to: 'purchases#new'
     match '/budgets', to: 'offices#index'
     match '/purchases', to: 'purchases#index'
+  
   end
   #Rush Subdomain
   constraints :subdomain => 'rush' do

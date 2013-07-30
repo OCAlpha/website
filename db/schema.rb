@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721221841) do
+ActiveRecord::Schema.define(:version => 20130721233406) do
 
   create_table "account_transfers", :force => true do |t|
     t.integer  "from_account_id"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20130721221841) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "purchase_location"
+    t.boolean  "confirmed"
   end
 
   create_table "reconciliations", :force => true do |t|

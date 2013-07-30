@@ -1,5 +1,5 @@
 <tr class="<%= (payment.confirmed ? '' : 'error') %>">
-  <td><%= link_to "Payment", edit_payment_path(payment) %></td>
+  <td><%= link_to "Payment", edit_payment_url(payment, :host => 'treasury.' + request.domain) %></td>
   <td><%= number_to_currency(payment.amount_paid, :currency => "$") %></td>
   <td><%= payment.created_at %></td>
   <td><%= (payment.confirmed ? 'Confirmed':'Unconfirmed') %></td>

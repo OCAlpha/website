@@ -23,7 +23,11 @@
     <%= f.label :value %><br />
     <%= f.text_field :value %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %> <br />
+  </div>
+  <div class="field">
+    <%= f.submit class:'btn btn-large btn-primary'%>
   </div>
 <% end %>

@@ -1,8 +1,8 @@
-<tr>
-  <td><%= link_to "Purchase", edit_purchase_url(purchase)%></td>
+<tr class="<%= (purchase.confirmed ? '' : 'error') %>">
+  <td><%= link_to "Purchase", edit_purchase_url(purchase, :host => 'treasury.' + request.domain)%></td>
   <td><%= number_to_currency(purchase.purchase_amount, :currency => "$") %></td>
   <td><%= purchase.created_at %></td>
-  <td><%= link_to (purchase.confirmed ? 'Confirmed': 'Unconfirmed'),  :controller => :purchase, :action => :confirm %></td>
+  <td><%= purchase.confirmed ? 'Confirmed': 'Unconfirmed'%></td>
   <td><%= purchase.office.title %></td>
   <td></td>
 </tr>

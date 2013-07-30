@@ -13,7 +13,7 @@
 #
 
 class Purchase < ActiveRecord::Base
-  attr_accessible :note, :office_id, :purchase_amount, :user_id, :purchase_location
+  attr_accessible :note, :office_id, :purchase_amount, :user_id, :purchase_location, :confirmed
   
   belongs_to :user
   belongs_to :office
