@@ -14,7 +14,7 @@
 #
 
 class Payment < ActiveRecord::Base
-  attr_accessible :amount_paid, :notes, :paid_by_user_id, :collected_by_user_id, :payment_type
+  attr_accessible :amount_paid, :notes, :paid_by_user_id, :collected_by_user_id, :payment_type, :confirmed
   #before_create :setup_payment
   
   belongs_to :payment_type
