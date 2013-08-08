@@ -2,16 +2,21 @@
 <h1>The Knights of Alpha</h1>
 
 <%= will_paginate %>
-<ul class="users">
+<ul class="media-list">
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size:60 %>
-        <% if user.nickname.present? %>
-          <%= link_to "Sir {user.nickname}", user %>
-          <em><small> aka <%= user.name %></small></em><br />
-        <% else %>
-            <%= link_to user.name, user %><br />
-        <% end %>
+    <li class="media">
+      <a class="pull-left" href="#">
+        <img class="media-object" src="{gravatar_for user}" >
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <% if user.nickname.present? %>
+            <%= link_to "Sir {user.nickname}", user %>
+            <em><small> aka <%= user.name %></small></em><br />
+          <% else %>
+              <%= link_to user.name, user %><br />
+          <% end %>
+        </h4>
         <% if user.email_public? || officer? %>
           <%= mail_to "#{user.email}", user.email %> <br />
         <% end %>
@@ -22,8 +27,9 @@
           Current Balance: <%= number_to_currency(user.current_balance, :currency => "$") %>
         <% end %>
         <% if current_user.admin? && !current_user?(user) %>
-          | <%= link_to "delete", user, method: :delete, data: {confirm: "You sure?"} %>
+          | <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure you wish to delete {user.name}?"} %>
         <% end %>
+      </div>
     </li>
   <% end %>
 </ul>
