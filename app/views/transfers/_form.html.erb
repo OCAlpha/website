@@ -13,19 +13,27 @@
 
   <div class="form-group">
     <%= f.label :officer_user_id, "Member", :class => "col-lg-2 control-label" %><br />
-    <%= f.select :officer_user_id, all_users %>
+    <div class="col-lg-10">
+      <%= f.select :officer_user_id, all_users %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.label :account_id, :class => "col-lg-2 control-label" %>
-    <%= f.select :account_id, Account.all.collect{|a| [a.name, a.id]} %>
+    <div class="col-lg-10">
+      <%= f.select :account_id, Account.all.collect{|a| [a.name, a.id]} %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.label :value, :class => "col-lg-2 control-label" %>
-    <%= f.text_field :value, :placeholder => "12.37" %>
+    <div class="col-lg-10">
+      <%= f.text_field :value, :placeholder => "12.37" %>
+    </div>
   </div>
   <div class="form-group">
     <%= f.label :note, :class => "col-lg-2 control-label" %>
-    <%= f.text_field :note, :placeholder => "Description of purchased items"%>
+    <div class="col-lg-10">
+      <%= f.text_field :note, :placeholder => "Description of purchased items"%>
+    </div>
   </div>
   <div class="form-group">
     <%= f.submit class:'btn btn-large btn-primary'%>
