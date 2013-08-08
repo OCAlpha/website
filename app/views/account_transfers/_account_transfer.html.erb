@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to "Account Transfer", edit_account_transfer_url(account_transfer, :host => 'treasury.' + request.domain) %></td>
+  <td><%= number_to_currency(account_transfer.amount, :currency => "$") %></td>
+  <td><%= account_transfer.created_at %></td>
+  <td>From <%= account_transfer.xferred_from.name %></td>
+  <td>To <%= account_transfer.xferred_to.name %></td>
+  <td><%= account_transfer.note %></td>
+</tr>

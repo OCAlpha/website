@@ -7,9 +7,9 @@
 
 <p>
   <b>Balance:</b>
-  <%= number_to_currency(@reconciliation.balance, :currency => "$" %>
+  <%= number_to_currency(@reconciliation.balance, :currency => "$") %>
 </p>
 
 
-<%= link_to 'Edit', edit_reconciliation_path(@reconciliation) %> |
+<%= link_to 'Edit', edit_reconciliation_url(@reconciliation, :domian => "treasury." + request.domain) %> |
 <%= link_to 'Back', reconciliations_path %>

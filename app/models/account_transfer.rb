@@ -14,4 +14,6 @@ class AccountTransfer < ActiveRecord::Base
   attr_accessible :amount, :from_account_id, :to_account_id, :note
   belongs_to :xferred_from, :class_name => 'Account', :foreign_key => 'from_account_id'
   belongs_to :xferred_to, :class_name => 'Account', :foreign_key => 'to_account_id'
+  
+  
 end
