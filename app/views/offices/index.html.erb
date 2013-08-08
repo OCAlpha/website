@@ -10,7 +10,6 @@
     <th>Officer</th>
     <% if signed_in? %>
       <th>Budget</th>
-      <th>Spent</th>
       <th>Remaining</th>
       <% if officer? %>
         <th></th>
@@ -26,8 +25,12 @@
     <td><%= link_to office.title, office %></td>
     <td><%= office.officer.name %></td>
     <% if signed_in? %>
-      <td><%= number_to_currency(office.budget, :currency => "$") %></td>
-      <td><%= number_to_currency(office.spent, :currency => "$") %></td>
+      <td>
+        <%= number_to_currency(office.spent, :currency => "$") %>/<%= number_to_currency(office.budget, :currency => "$") %><br />
+        <div class= <%= officer.title + "progress" %>>
+          <div class="progress-bar progress-bar-success" style=<%= "width:" + (office.spent / ((office.budget > 0) ? office.budget : 1) * 100 + "%" %></div>
+        </div>
+      </td>
       <td><%= number_to_currency(office.budget_remaining, :currency => "$") %></td>
       <% if officer? %>
         <td><%= link_to 'Edit', edit_office_path(office) %></td>
