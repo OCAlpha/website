@@ -74,7 +74,7 @@ currently planned features by OC's fall semester in September.
 1. Verify permissions on all pages
 2. Implement Payment/Charge/Purchase/Transfer confirmation for non-officers
 3. Add features to Directory Page
- * Executors can see member's current balance
-4. Start implementing Reconciliation system in treasury
-5. Start implementing other planned features (details to be added to to-do list as features are implemented)
-6. Get a private repository...
+4. Start implementing other planned features (details to be added to to-do list as features are implemented)
+5. Get a private repository...
+6. Offices and Budgets page: Treasurer totals depict collections outstanding instead of budgets
+7. Accounts/show: list all transactions involving that account

@@ -11,15 +11,15 @@
     <th></th>
   </tr>
 
-<% @purchases.each do |purchase| %>
+<% @purchases.each do |p| %>
   <tr>
-    <td><%= link_to purchase.user.name, user_path(purchase.user) %></td>
-    <td><%= number_to_currency purchase.purchase_amount, :currency => "$" %></td>
-    <td><%= link_to purchase.office.title, office_path(purchase.office) %></td>
-    <td><%= purchase.note %></td>
-    <td><%= link_to 'Show', purchase %></td>
-    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-    <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to p.user.name, user_path(p.user) %></td>
+    <td><%= number_to_currency p.purchase_amount, :currency => "$" %></td>
+    <td><%= link_to p.office.title, office_path(p.office) %></td>
+    <td><%= p.note %></td>
+    <td><%= link_to 'Show', p %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(p) %></td>
+    <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

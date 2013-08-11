@@ -3,7 +3,7 @@
                 Treasury Admin
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><%= link_to "All Payments", payments_url(:host => "treasury." + request.domain), method: "index" %></li>
+                <li><%= link_to "All Payments", payments_url(:host => "treasury." + request.domain) %></li>
                 <li><%= link_to "All Purchases", purchases_url(:host => "treasury." + request.domain) %></li>
                 <li><%= link_to "All Charges", charges_url(:host => "treasury." + request.domain) %></li>
                 <li><%= link_to "All Transfers", transfers_url(:host => "treasury." + request.domain) %></li>

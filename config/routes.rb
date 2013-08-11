@@ -45,6 +45,7 @@ Fullrun::Application.routes.draw do
     match '/newcharge', to: 'charges#new'
     match '/newpayment', to: 'payments#new'
     match '/newtransfer', to: 'transfers#new'
+    match '/newacctxfer', to: 'account_transfers#new'
     match '/clubpurchase', to: 'purchases#new'
     match '/budgets', to: 'offices#index'
     match '/purchases', to: 'purchases#index'

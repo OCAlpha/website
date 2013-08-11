@@ -27,8 +27,10 @@
     <%= f.label :notes %><br />
     <%= f.text_field :notes %>
   </div>
-  <% if executor? %>
-    <%= check_box_tag :confirmed, "Confirmed" %>
+  <% if executor? %> 
+    <div class="field">
+      <%= check_box_tag :reconciled %> Confirmed
+    </div>
   <% end %>
   <div class="actions">
     <%= f.submit class:"btn btn-large btn-primary"%>

@@ -65,6 +65,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.find(params[:id])
     respond_to do |format|
       if @payment.update_attributes(params[:payment])
+        @payment.confirmed = params[:confirmed]
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
         format.json { head :no_content }
       else

@@ -5,13 +5,12 @@
 <ul class="media-list">
   <% @users.each do |user| %>
     <li class="media">
-      <a class="pull-left" href="#">
-        <img class="media-object" src="{gravatar_for user}" >
+      <%= link_to gravatar_for user, user %>
       </a>
       <div class="media-body">
         <h4 class="media-heading">
           <% if user.nickname.present? %>
-            <%= link_to "Sir {user.nickname}", user %>
+            <%= link_to "Sir #{user.nickname}", user %>
             <em><small> aka <%= user.name %></small></em><br />
           <% else %>
               <%= link_to user.name, user %><br />

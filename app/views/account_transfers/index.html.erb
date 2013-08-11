@@ -12,8 +12,8 @@
 
 <% @account_transfers.each do |account_transfer| %>
   <tr>
-    <td><%= link_to account_transfer.from_account.name, account_path(account_transfer.from_account) %></td>
-    <td><%= link_to account_transfer.to_account.name, account_path(account_transfer.to_account) %></td>
+    <td><%= link_to account_transfer.xferred_from.name, account_path(account_transfer.xferred_from) %></td>
+    <td><%= link_to account_transfer.xferred_to.name, account_path(account_transfer.xferred_to) %></td>
     <td><%= number_to_currency(account_transfer.amount, :currency => "$") %></td>
     <td><%= link_to 'Show', account_transfer %></td>
     <td><%= link_to 'Edit', edit_account_transfer_path(account_transfer) %></td>
