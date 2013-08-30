@@ -2,8 +2,8 @@
 
 /* mixins, variables, etc. */
 
-$grayLighter: #eaeaea;
-
+$grayMediumLight: #eaeaea;
+$grayLighter: #ebebeb;
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
