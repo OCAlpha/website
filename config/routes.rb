@@ -1,14 +1,5 @@
 Fullrun::Application.routes.draw do
   
-  resources :event_signups
-
-
-  resources :event_categories
-
-
-  resources :events
-
-
   resources :reconciliations
 
 
